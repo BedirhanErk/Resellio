@@ -1,6 +1,6 @@
-﻿namespace Mentor.Services.Catalog.Dto
+﻿namespace Mentor.Services.Catalog.Dtos
 {
-    public class CourseDto
+    public class CourseUpdateDto
     {
         public string Id { get; set; }
 
@@ -16,10 +16,6 @@
 
         public string Description { get; set; }
 
-        public DateTime CreatedDate { get; set; }
-
         public FeatureDto Feature { get; set; }
-
-        public CategoryDto Category { get; set; }
     }
 }

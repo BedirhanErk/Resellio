@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Catalog.Dto
+﻿namespace Mentor.Services.Catalog.Dtos
 {
     public class CategoryCreateDto
     {
