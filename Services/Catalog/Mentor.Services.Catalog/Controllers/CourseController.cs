@@ -11,7 +11,7 @@ namespace Mentor.Services.Catalog.Controllers
     {
         private readonly ICourseService _courseService;
 
-        internal CourseController(ICourseService courseService)
+        public CourseController(ICourseService courseService)
         {
             _courseService = courseService;
         }
