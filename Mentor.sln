@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{A84118EF-1034-4028-B2FE-03D13852AC1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mentor.Services.Catalog", "Services\Catalog\Mentor.Services.Catalog\Mentor.Services.Catalog.csproj", "{7B35FFD7-D9BF-42B0-B393-F219F678361E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mentor.Services.Catalog", "Services\Catalog\Mentor.Services.Catalog\Mentor.Services.Catalog.csproj", "{7B35FFD7-D9BF-42B0-B393-F219F678361E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{32D865EF-A8A5-4D0A-8BE0-5E3CB6FF0C23}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{32D865EF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{0AF34A1C-2E2F-4BFC-AEDE-EA5B5180F845}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mentor.Shared", "Shared\Mentor.Shared\Mentor.Shared.csproj", "{15E5F4A6-42B8-42F6-B003-004602F8AF1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mentor.Shared", "Shared\Mentor.Shared\Mentor.Shared.csproj", "{15E5F4A6-42B8-42F6-B003-004602F8AF1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
