@@ -7,7 +7,7 @@ namespace Mentor.Services.Catalog.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    internal class CategoryController : CustomBaseController
+    public class CategoryController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;
         public CategoryController(ICategoryService categoryService)
@@ -15,6 +15,7 @@ namespace Mentor.Services.Catalog.Controllers
             _categoryService = categoryService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var response = await _categoryService.GetAllAsync();

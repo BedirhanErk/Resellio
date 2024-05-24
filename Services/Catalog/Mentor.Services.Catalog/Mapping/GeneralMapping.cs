@@ -8,13 +8,14 @@ namespace Mentor.Services.Catalog.Mapping
     {
         public GeneralMapping()
         {
-            CreateMap<Course, CourseDto>().ReverseMap();
             CreateMap<Category, CategoryDto>().ReverseMap();
-            CreateMap<Feature, FeatureDto>().ReverseMap();
+            CreateMap<Category, CategoryCreateDto>().ReverseMap();
 
+            CreateMap<Course, CourseDto>().ReverseMap();
             CreateMap<Course, CourseCreateDto>().ReverseMap();
             CreateMap<Course, CourseUpdateDto>().ReverseMap();
-            CreateMap<Category, CourseCreateDto>().ReverseMap();
+
+            CreateMap<Feature, FeatureDto>().ReverseMap();
         }
     }
 }
