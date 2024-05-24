@@ -1,6 +1,6 @@
 ﻿namespace Mentor.Services.Catalog.Dtos
 {
-    public class FeatureDto
+    internal class FeatureDto
     {
         public string Duration { get; set; }
     }

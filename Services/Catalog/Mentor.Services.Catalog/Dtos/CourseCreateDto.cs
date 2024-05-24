@@ -1,6 +1,6 @@
 ﻿namespace Mentor.Services.Catalog.Dtos
 {
-    public class CourseCreateDto
+    internal class CourseCreateDto
     {
         public string UserId { get; set; }
 

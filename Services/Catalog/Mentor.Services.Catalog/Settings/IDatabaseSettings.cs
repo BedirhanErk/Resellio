@@ -1,6 +1,6 @@
 ﻿namespace Mentor.Services.Catalog.Settings
 {
-    public interface IDatabaseSettings
+    internal interface IDatabaseSettings
     {
         public string CourseCollectionName { get; set; }
         public string CategoryCollectionName { get; set; }

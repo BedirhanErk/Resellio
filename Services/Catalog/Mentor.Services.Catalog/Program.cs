@@ -1,10 +1,13 @@
 using Mentor.Services.Catalog.Mapping;
+using Mentor.Services.Catalog.Services;
 using Mentor.Services.Catalog.Settings;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 builder.Services.AddAutoMapper(typeof(GeneralMapping));
 
