@@ -20,6 +20,13 @@ namespace Mentor.Services.Catalog.Services
             _mapper = mapper;
         }
 
+        public async Task<Response<List<CategoryDto>>> GetAllAsync()
+        {
+            var categories = await _categoryCollection.Find(x => true).ToListAsync();
+
+            return Response<List<CategoryDto>>.Success(_mapper.Map<List<CategoryDto>>(categories), 200);
+        }
+
         public async Task<Response<CategoryDto>> GetByIdAsync(string id)
         {
             var category = await _categoryCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
@@ -28,13 +35,6 @@ namespace Mentor.Services.Catalog.Services
                 return Response<CategoryDto>.Fail("Category not found", 404);
 
             return Response<CategoryDto>.Success(_mapper.Map<CategoryDto>(category), 200);
-        }
-
-        public async Task<Response<List<CategoryDto>>> GetAllAsync()
-        {
-            var categories = await _categoryCollection.Find(x => true).ToListAsync();
-
-            return Response<List<CategoryDto>>.Success(_mapper.Map<List<CategoryDto>>(categories), 200);
         }
 
         public async Task<Response<CategoryDto>> CreateAsync(CategoryCreateDto categoryCreateDto)

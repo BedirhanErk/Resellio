@@ -22,6 +22,23 @@ namespace Mentor.Services.Catalog.Services
             _mapper = mapper;
         }
 
+        public async Task<Response<List<CourseDto>>> GetAllAsync()
+        {
+            var courses = await _courseCollection.Find(x => true).ToListAsync();
+
+            if (courses.Any())
+            {
+                foreach (var course in courses)
+                {
+                    course.Category = await _categoryCollection.Find(x => x.Id == course.CategoryId).FirstAsync();
+                }
+            }
+            else
+                courses = new List<Course>();
+
+            return Response<List<CourseDto>>.Success(_mapper.Map<List<CourseDto>>(courses), 200);
+        }
+
         public async Task<Response<CourseDto>> GetByIdAsync(string id)
         {
             var course = await _courseCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
@@ -46,23 +63,6 @@ namespace Mentor.Services.Catalog.Services
                 }
             }
             else
-                courses = new List<Course>();
-
-            return Response<List<CourseDto>>.Success(_mapper.Map<List<CourseDto>>(courses), 200);
-        }
-
-        public async Task<Response<List<CourseDto>>> GetAllAsync()
-        {
-            var courses = await _courseCollection.Find(x => true).ToListAsync();
-
-            if (courses.Any())
-            {
-                foreach (var course in courses)
-                {
-                    course.Category = await _categoryCollection.Find(x => x.Id == course.CategoryId).FirstAsync();
-                }
-            }
-            else 
                 courses = new List<Course>();
 
             return Response<List<CourseDto>>.Success(_mapper.Map<List<CourseDto>>(courses), 200);
