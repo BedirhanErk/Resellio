@@ -47,6 +47,7 @@ namespace Mentor.IdentityServer
                 {
                     ClientName = "Asp.Net Core MVC",
                     ClientId = "WebMvcClientForUser",
+                    AllowOfflineAccess = true,
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     AllowedScopes = { IdentityServerConstants.StandardScopes.Email, IdentityServerConstants.StandardScopes.OpenId, IdentityServerConstants.StandardScopes.Profile, IdentityServerConstants.StandardScopes.OfflineAccess, "roles" },
