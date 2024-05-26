@@ -1,6 +1,7 @@
 ﻿using IdentityServer4;
 using Mentor.IdentityServer.Data;
 using Mentor.IdentityServer.Models;
+using Mentor.IdentityServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -49,6 +50,8 @@ namespace Mentor.IdentityServer
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
                 .AddAspNetIdentity<ApplicationUser>();
+
+            builder.AddResourceOwnerValidator<IdentityResourceOwnerPasswordValidator>();
 
             builder.AddDeveloperSigningCredential();
 
