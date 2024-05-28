@@ -1,10 +1,15 @@
 using Mentor.Services.Basket.Services;
 using Mentor.Services.Basket.Settings;
+using Mentor.Shared.Services;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 
