@@ -28,7 +28,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mentor.Services.PhotoStock"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{914D0E1D-BFED-4460-A0F6-8401DC1429C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mentor.Services.Basket", "Services\Basket\Mentor.Services.Basket\Mentor.Services.Basket.csproj", "{530450F1-80BA-41E0-BD2B-7AA2FB291353}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mentor.Services.Basket", "Services\Basket\Mentor.Services.Basket\Mentor.Services.Basket.csproj", "{530450F1-80BA-41E0-BD2B-7AA2FB291353}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{9F75D1EC-A9DD-413F-9554-57191F4AC2D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mentor.Services.Discount", "Services\Discount\Mentor.Services.Discount\Mentor.Services.Discount.csproj", "{1D4484EB-A99E-4434-A5AE-2AC61AF67271}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +60,10 @@ Global
 		{530450F1-80BA-41E0-BD2B-7AA2FB291353}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{530450F1-80BA-41E0-BD2B-7AA2FB291353}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{530450F1-80BA-41E0-BD2B-7AA2FB291353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D4484EB-A99E-4434-A5AE-2AC61AF67271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D4484EB-A99E-4434-A5AE-2AC61AF67271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D4484EB-A99E-4434-A5AE-2AC61AF67271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D4484EB-A99E-4434-A5AE-2AC61AF67271}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +77,8 @@ Global
 		{46BED9EE-FD96-4D59-9F00-651492A9862C} = {66742532-A786-4582-B778-D4CF5AD27009}
 		{914D0E1D-BFED-4460-A0F6-8401DC1429C3} = {E8D640C2-A144-472C-BD02-81FC2EB3B502}
 		{530450F1-80BA-41E0-BD2B-7AA2FB291353} = {914D0E1D-BFED-4460-A0F6-8401DC1429C3}
+		{9F75D1EC-A9DD-413F-9554-57191F4AC2D4} = {E8D640C2-A144-472C-BD02-81FC2EB3B502}
+		{1D4484EB-A99E-4434-A5AE-2AC61AF67271} = {9F75D1EC-A9DD-413F-9554-57191F4AC2D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82512D18-6F42-4556-8F5A-43C78668FADB}

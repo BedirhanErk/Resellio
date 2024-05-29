@@ -1,0 +1,6 @@
+@Mentor.Services.Discount_HostAddress = http://localhost:5199
+
+GET {{Mentor.Services.Discount_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
