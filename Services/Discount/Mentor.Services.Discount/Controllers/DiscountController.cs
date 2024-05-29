@@ -34,14 +34,6 @@ namespace Mentor.Services.Discount.Controllers
             return CreateActionResultInstance(response);
         }
 
-        [HttpGet("GetByCode/{code}")]
-        public async Task<IActionResult> GetByCode(string code)
-        {
-            var response = await _discountService.GetByCodeAndUserId(code, _sharedIdentityService.UserId);
-
-            return CreateActionResultInstance(response);    
-        }
-
         [HttpPost]
         public async Task<IActionResult> Save(Models.Discount discount)
         {
@@ -62,6 +54,14 @@ namespace Mentor.Services.Discount.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var response = await _discountService.Delete(id);
+
+            return CreateActionResultInstance(response);
+        }
+
+        [HttpGet("GetByCode/{code}")]
+        public async Task<IActionResult> GetByCode(string code)
+        {
+            var response = await _discountService.GetByCodeAndUserId(code, _sharedIdentityService.UserId);
 
             return CreateActionResultInstance(response);
         }
