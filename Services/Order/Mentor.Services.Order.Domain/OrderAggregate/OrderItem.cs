@@ -9,6 +9,11 @@ namespace Mentor.Services.Order.Domain.OrderAggregate
         public decimal Price { get; private set; }
         public string PictureUrl { get; private set; }
 
+        public OrderItem()
+        {
+            
+        }
+
         public OrderItem(string courseId, string courseName, decimal price, string pictureUrl)
         {
             CourseId = courseId;
