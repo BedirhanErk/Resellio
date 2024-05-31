@@ -2,9 +2,9 @@
 {
     public class OrderItemDto
     {
-        public string CourseId { get; private set; }
-        public string CourseName { get; private set; }
-        public decimal Price { get; private set; }
-        public string PictureUrl { get; private set; }
+        public string CourseId { get; set; }
+        public string CourseName { get; set; }
+        public decimal Price { get; set; }
+        public string PictureUrl { get; set; }
     }
 }
