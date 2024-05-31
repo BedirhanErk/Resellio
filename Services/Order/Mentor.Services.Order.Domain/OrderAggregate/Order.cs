@@ -21,9 +21,9 @@ namespace Mentor.Services.Order.Domain.OrderAggregate
 
         public void AddOrderItem(string courseId, string courseName, decimal price, string pictureUrl)
         {
-            var existProduct = _orderItems.Any(x => x.CourseId == courseId);
+            var existCourse = _orderItems.Any(x => x.CourseId == courseId);
 
-            if (!existProduct)
+            if (!existCourse)
             {
                 var newOrderItem = new OrderItem(courseId, courseName, price, pictureUrl);
                 _orderItems.Add(newOrderItem);

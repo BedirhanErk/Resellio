@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Mentor.Shared\Mentor.Shared.csproj" />
     <ProjectReference Include="..\Mentor.Services.Order.Domain\Mentor.Services.Order.Domain.csproj" />
     <ProjectReference Include="..\Mentor.Services.Order.Infrastructure\Mentor.Services.Order.Infrastructure.csproj" />
   </ItemGroup>
