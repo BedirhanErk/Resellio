@@ -1,4 +1,6 @@
+using MediatR;
 using Mentor.Services.Order.Infrastructure;
+using Mentor.Shared.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,11 @@ builder.Services.AddDbContext<OrderDbContext>(opt =>
         configure.MigrationsAssembly("Mentor.Services.Order.Infrastructure");
     });
 });
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddMediatR(typeof(Mentor.Services.Order.Application.Handlers.CreateOrderCommandHandler).Assembly);
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

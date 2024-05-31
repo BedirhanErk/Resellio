@@ -15,12 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Mentor.Shared\Mentor.Shared.csproj" />
     <ProjectReference Include="..\Mentor.Services.Order.Application\Mentor.Services.Order.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
