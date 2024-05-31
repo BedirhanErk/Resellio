@@ -1,11 +1,28 @@
 using MediatR;
 using Mentor.Services.Order.Infrastructure;
 using Mentor.Shared.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+
+JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.Authority = builder.Configuration["IdentityServerURL"];
+    options.Audience = "resource_order";
+    options.RequireHttpsMetadata = false;
+});
+
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddDbContext<OrderDbContext>(opt =>
 {
@@ -15,12 +32,14 @@ builder.Services.AddDbContext<OrderDbContext>(opt =>
     });
 });
 
-builder.Services.AddHttpContextAccessor();
-
 builder.Services.AddMediatR(typeof(Mentor.Services.Order.Application.Handlers.CreateOrderCommandHandler).Assembly);
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -33,6 +52,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
