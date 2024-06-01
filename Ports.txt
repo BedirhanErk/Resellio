@@ -4,5 +4,6 @@ Services:
 	- BasketAPI => 5013
 	- DiscountAPI => 5014
 	- OrderAPI => 5015
+	- PaymentAPI => 5016
 
 - IdentityServer => 5001	
