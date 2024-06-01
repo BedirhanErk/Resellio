@@ -14,7 +14,7 @@ builder.Configuration
 
 var app = builder.Build();
 
-await app.UseOcelot();
+app.UseOcelot().Wait();
 
 app.MapGet("/", () => "Hello World!");
 
