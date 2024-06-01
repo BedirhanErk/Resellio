@@ -6,4 +6,5 @@ Services:
 	- OrderAPI => 5015
 	- PaymentAPI => 5016
 
+- Gateway => 5000
 - IdentityServer => 5001	
