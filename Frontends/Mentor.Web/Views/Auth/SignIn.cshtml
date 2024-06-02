@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "SignIn";
+}
+@model Mentor.Web.Models.SignInInput
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mentor</h5>
+                <form asp-controller="Auth" asp-action="SignIn" method="post">
+                    <div class="form-group">
+                        <label asp-for="Email" for="exampleInputEmail1"></label>
+                        <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" for="exampleInputPassword1"></label>
+                        <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <input asp-for="IsRemember" type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label asp-for="IsRemember" class="form-check-label" for="exampleCheck1"></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
