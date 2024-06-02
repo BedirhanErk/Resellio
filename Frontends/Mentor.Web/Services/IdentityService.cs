@@ -125,9 +125,27 @@ namespace Mentor.Web.Services
             return token;
         }
 
-        public Task RevokeRefreshToken()
+        public async Task RevokeRefreshToken()
         {
-            throw new NotImplementedException();
+            var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
+            {
+                Address = _serviceApiSettings.BaseUri,
+                Policy = new DiscoveryPolicy { RequireHttps = false }
+            });
+
+            if (disco.IsError)
+                throw disco.Exception;
+
+            var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+
+            var tokenRevocationRequest = new TokenRevocationRequest();
+            tokenRevocationRequest.ClientId = _clientSettings.WebClientForUser.ClientId;
+            tokenRevocationRequest.ClientSecret = _clientSettings.WebClientForUser.ClientSecret;
+            tokenRevocationRequest.Token = refreshToken;
+            tokenRevocationRequest.Address = disco.RevocationEndpoint;
+            tokenRevocationRequest.TokenTypeHint = "refresh_token";
+
+            await _httpClient.RevokeTokenAsync(tokenRevocationRequest);
         }
     }
 }
