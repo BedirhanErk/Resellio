@@ -1,6 +1,7 @@
 using Mentor.Web.Models;
 using Mentor.Web.Services;
 using Mentor.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,14 @@ builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("Cli
 
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
+{
+    opt.LoginPath = "/Auth/SignIn";
+    opt.ExpireTimeSpan = TimeSpan.FromDays(60);
+    opt.SlidingExpiration = true;
+    opt.Cookie.Name = "mentorcookie";
+});
 
 builder.Services.AddControllersWithViews();
 
@@ -24,6 +33,8 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
