@@ -10,7 +10,7 @@ namespace Mentor.Web.Services.Interfaces
         Task<CategoryViewModel> GetCategoryById(string id);
         Task<List<CourseViewModel>> GetAllCoursesByUserId(string userId);
         Task<CourseViewModel> CreateCourse(CourseCreateInput courseCreateInput);
-        Task<CategoryViewModel> CreateCategory(CategoryCreateInput courseCreateInput);
+        Task<CategoryViewModel> CreateCategory(CategoryCreateInput categoryCreateInput);
         Task<bool> UpdateCourse(CourseUpdateInput courseUpdateInput);
         Task<bool> DeleteCourse(string id);
     }
