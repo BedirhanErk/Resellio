@@ -1,5 +1,7 @@
 ﻿using Mentor.Web.Models;
 using Mentor.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Web.Controllers
@@ -35,6 +37,15 @@ namespace Mentor.Web.Controllers
 
                 return View();
             }
+
+            return RedirectToAction(nameof(Index), "Home");
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            await _identityService.RevokeRefreshToken();
 
             return RedirectToAction(nameof(Index), "Home");
         }
