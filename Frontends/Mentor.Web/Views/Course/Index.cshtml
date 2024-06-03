@@ -8,15 +8,17 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Courses</h5>
+                <h5 class="card-title">My Courses</h5>
                 @if (Model.Any())
                 {
                     <table class="table table-striped table-bordered">
                         <thead>
-                            <tr>Image</tr>
-                            <tr>Name</tr>
-                            <tr>Price</tr>
-                            <tr>Duration</tr>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Duration</th>
+                            </tr
                         </thead>
                         <tbody>
                             @foreach (var item in Model)

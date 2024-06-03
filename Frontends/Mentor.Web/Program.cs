@@ -31,8 +31,6 @@ builder.Services.AddHttpClient<ICatalogService, CatalogService>(opt =>
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 
-builder.Services.AddHttpContextAccessor();
-
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
 {
     opt.LoginPath = "/Auth/SignIn";
@@ -40,6 +38,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opt.SlidingExpiration = true;
     opt.Cookie.Name = "mentorcookie";
 });
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddAccessTokenManagement();
 
 builder.Services.AddControllersWithViews();
 
