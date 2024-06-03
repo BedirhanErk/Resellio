@@ -20,6 +20,11 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt =>
     opt.BaseAddress = new Uri(serviceApiSettings.IdentityUri);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
+builder.Services.AddHttpClient<ICatalogService, CatalogService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayUri}/{serviceApiSettings.Catalog.Path}");
+});
+
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 builder.Services.AddHttpContextAccessor();
 
