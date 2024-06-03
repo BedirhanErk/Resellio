@@ -2,7 +2,8 @@
 {
     public class ServiceApiSettings
     {
-        public string BaseUri { get; set; }
+        public string GatewayUri { get; set; }
+        public string IdentityUri { get; set; }
         public string PhotoStockUri { get; set; }
     }
 }

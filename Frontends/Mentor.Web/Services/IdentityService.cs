@@ -31,7 +31,7 @@ namespace Mentor.Web.Services
         {
             var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
-                Address = _serviceApiSettings.BaseUri,
+                Address = _serviceApiSettings.IdentityUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
 
@@ -88,7 +88,7 @@ namespace Mentor.Web.Services
         {
             var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
-                Address = _serviceApiSettings.BaseUri,
+                Address = _serviceApiSettings.IdentityUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
 
@@ -129,7 +129,7 @@ namespace Mentor.Web.Services
         {
             var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
-                Address = _serviceApiSettings.BaseUri,
+                Address = _serviceApiSettings.IdentityUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
 
