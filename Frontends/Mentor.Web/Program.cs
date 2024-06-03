@@ -1,3 +1,4 @@
+using Mentor.Shared.Services;
 using Mentor.Web.Handler;
 using Mentor.Web.Models;
 using Mentor.Web.Services;
@@ -12,6 +13,7 @@ builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection(
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 
