@@ -29,7 +29,7 @@ namespace Mentor.Web.Services
 
             foreach (var item in responseSuccess.Data)
             {
-                item.Picture = _photoHelper.GetPhotoUrl(item.Picture);
+                item.PictureUrl = _photoHelper.GetPhotoUrl(item.Picture);
             }
 
             return responseSuccess.Data;
@@ -56,7 +56,7 @@ namespace Mentor.Web.Services
 
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<CourseViewModel>>();
 
-            responseSuccess.Data.Picture = _photoHelper.GetPhotoUrl(responseSuccess.Data.Picture);
+            responseSuccess.Data.PictureUrl = _photoHelper.GetPhotoUrl(responseSuccess.Data.Picture);
 
             return responseSuccess.Data;
         }
@@ -84,7 +84,7 @@ namespace Mentor.Web.Services
 
             foreach (var item in responseSuccess.Data)
             {
-                item.Picture = _photoHelper.GetPhotoUrl(item.Picture);
+                item.PictureUrl = _photoHelper.GetPhotoUrl(item.Picture);
             }
 
             return responseSuccess.Data;
@@ -136,7 +136,16 @@ namespace Mentor.Web.Services
 
         public async Task<bool> DeleteCourse(string id)
         {
-            var response = await _httpClient.DeleteAsync($"course/{id}");
+            var course = await _httpClient.GetAsync($"course/{id}");
+
+            if (!course.IsSuccessStatusCode)
+                return false;
+
+            var responseSuccess = await course.Content.ReadFromJsonAsync<Response<CourseViewModel>>();  
+
+            await _photoStockService.DeletePhoto(responseSuccess.Data.Picture);
+
+            var response = await _httpClient.DeleteAsync($"course/{responseSuccess.Data.Id}");
 
             return response.IsSuccessStatusCode;
         }
