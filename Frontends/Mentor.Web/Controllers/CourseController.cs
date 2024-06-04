@@ -51,5 +51,29 @@ namespace Mentor.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Update(string id)
+        {
+            var course = await _catalogService.GetCourseById(id);
+
+            if (course == null)
+                return RedirectToAction(nameof(Index));
+
+            var courseUpdateInput = new CourseUpdateInput();
+            courseUpdateInput.Id = course.Id;
+            courseUpdateInput.UserId = course.UserId;
+            courseUpdateInput.CategoryId = course.CategoryId;
+            courseUpdateInput.Name = course.Name;
+            courseUpdateInput.Price = course.Price;
+            courseUpdateInput.Picture = course.Picture;
+            courseUpdateInput.Description = course.Description;
+            courseUpdateInput.Feature = course.Feature;
+
+            var categories = await _catalogService.GetAllCategories();
+
+            ViewBag.categoryList = new SelectList(categories, "Id", "Name", course.CategoryId);
+
+            return View(courseUpdateInput);
+        }
     }
 }
