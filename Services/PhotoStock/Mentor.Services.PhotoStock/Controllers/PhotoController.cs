@@ -19,9 +19,7 @@ namespace Mentor.Services.PhotoStock.Controllers
                 using (var stream = new FileStream(path, FileMode.Create))
                 await photo.CopyToAsync(stream, cancellationToken);
 
-                var returnPath = "photos/" + photo.FileName;
-
-                PhotoDto photoDto = new() { Url = returnPath };
+                PhotoDto photoDto = new() { Url = photo.FileName };
 
                 return CreateActionResultInstance(Response<PhotoDto>.Success(photoDto, 200));
             }
