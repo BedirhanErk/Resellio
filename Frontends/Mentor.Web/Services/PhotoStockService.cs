@@ -1,4 +1,5 @@
-﻿using Mentor.Web.Models.PhotoStock;
+﻿using Mentor.Shared.Dtos;
+using Mentor.Web.Models.PhotoStock;
 using Mentor.Web.Services.Interfaces;
 
 namespace Mentor.Web.Services
@@ -30,9 +31,9 @@ namespace Mentor.Web.Services
             if (!response.IsSuccessStatusCode)
                 return null;
 
-            var responseSuccess = await response.Content.ReadFromJsonAsync<PhotoViewModel>();
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<PhotoViewModel>>();
 
-            return responseSuccess;
+            return responseSuccess.Data;
         }
 
         public async Task<bool> DeletePhoto(string photoUrl)

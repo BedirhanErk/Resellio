@@ -7,10 +7,12 @@ namespace Mentor.Web.Services
     public class CatalogService : ICatalogService
     {
         private readonly HttpClient _httpClient;
+        private readonly IPhotoStockService _photoStockService;
 
-        public CatalogService(HttpClient httpClient)
+        public CatalogService(HttpClient httpClient, IPhotoStockService photoStockService)
         {
             _httpClient = httpClient;
+            _photoStockService = photoStockService;
         }
 
         public async Task<List<CourseViewModel>> GetAllCourses()
@@ -75,6 +77,11 @@ namespace Mentor.Web.Services
 
         public async Task<CourseViewModel> CreateCourse(CourseCreateInput courseCreateInput)
         {
+            var resultPhoto = await _photoStockService.UploadPhoto(courseCreateInput.PhotoFormFile);
+
+            if (resultPhoto != null)
+                courseCreateInput.Picture = resultPhoto.Url;
+
             var response = await _httpClient.PostAsJsonAsync("course", courseCreateInput);
 
             if (!response.IsSuccessStatusCode)

@@ -16,10 +16,14 @@ namespace Mentor.Web.Models.Catalog
         [Required]
         public decimal Price { get; set; }
 
-        public string Picture { get; set; }
+        public string? Picture { get; set; }
 
         public string? Description { get; set; }
 
         public FeatureViewModel Feature { get; set; }
+
+        [Required]
+        [Display(Name = "Picture")]
+        public IFormFile PhotoFormFile { get; set; }
     }
 }
