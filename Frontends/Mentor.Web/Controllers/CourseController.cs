@@ -71,7 +71,7 @@ namespace Mentor.Web.Controllers
 
             var categories = await _catalogService.GetAllCategories();
 
-            ViewBag.categoryList = new SelectList(categories, "Id", "Name", course.Id);
+            ViewBag.categoryList = new SelectList(categories, "Id", "Name", course.CategoryId);
 
             return View(courseUpdateInput);
         }
@@ -81,10 +81,12 @@ namespace Mentor.Web.Controllers
         {
             var categories = await _catalogService.GetAllCategories();
 
-            ViewBag.categoryList = new SelectList(categories, "Id", "Name", courseUpdateInput.Id);
+            ViewBag.categoryList = new SelectList(categories, "Id", "Name", courseUpdateInput.CategoryId);
 
             if (!ModelState.IsValid)
                 return View();
+
+            courseUpdateInput.UserId = _sharedIdentityService.UserId;
 
             await _catalogService.UpdateCourse(courseUpdateInput);
 

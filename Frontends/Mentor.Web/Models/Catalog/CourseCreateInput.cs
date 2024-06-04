@@ -4,7 +4,7 @@ namespace Mentor.Web.Models.Catalog
 {
     public class CourseCreateInput
     {
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
 
         [Required]
         [Display(Name = "Category")]
@@ -18,7 +18,7 @@ namespace Mentor.Web.Models.Catalog
 
         public string Picture { get; set; }
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         public FeatureViewModel Feature { get; set; }
     }
