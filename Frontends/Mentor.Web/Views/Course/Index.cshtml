@@ -34,6 +34,7 @@
                                     <td>@item.Feature.Duration</td>
                                     <td>
                                         <a class="btn btn-success" asp-controller="Course" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                        <a class="btn btn-danger" asp-controller="Course" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                                     </td>
                                 </tr>
                             }
