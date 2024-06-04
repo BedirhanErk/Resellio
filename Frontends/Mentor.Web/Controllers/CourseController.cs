@@ -71,9 +71,24 @@ namespace Mentor.Web.Controllers
 
             var categories = await _catalogService.GetAllCategories();
 
-            ViewBag.categoryList = new SelectList(categories, "Id", "Name", course.CategoryId);
+            ViewBag.categoryList = new SelectList(categories, "Id", "Name", course.Id);
 
             return View(courseUpdateInput);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(CourseUpdateInput courseUpdateInput)
+        {
+            var categories = await _catalogService.GetAllCategories();
+
+            ViewBag.categoryList = new SelectList(categories, "Id", "Name", courseUpdateInput.Id);
+
+            if (!ModelState.IsValid)
+                return View();
+
+            await _catalogService.UpdateCourse(courseUpdateInput);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
