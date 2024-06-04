@@ -1,5 +1,6 @@
 using Mentor.Shared.Services;
 using Mentor.Web.Handler;
+using Mentor.Web.Helpers;
 using Mentor.Web.Models;
 using Mentor.Web.Services;
 using Mentor.Web.Services.Interfaces;
@@ -11,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
+
+builder.Services.AddSingleton<PhotoHelper>();
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 builder.Services.AddScoped<ClientCredentialTokenHandler>();

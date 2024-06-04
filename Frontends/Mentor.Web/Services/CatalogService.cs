@@ -1,4 +1,5 @@
 ﻿using Mentor.Shared.Dtos;
+using Mentor.Web.Helpers;
 using Mentor.Web.Models.Catalog;
 using Mentor.Web.Services.Interfaces;
 
@@ -8,11 +9,13 @@ namespace Mentor.Web.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IPhotoStockService _photoStockService;
+        private readonly PhotoHelper _photoHelper;
 
-        public CatalogService(HttpClient httpClient, IPhotoStockService photoStockService)
+        public CatalogService(HttpClient httpClient, IPhotoStockService photoStockService, PhotoHelper photoHelper)
         {
             _httpClient = httpClient;
             _photoStockService = photoStockService;
+            _photoHelper = photoHelper;
         }
 
         public async Task<List<CourseViewModel>> GetAllCourses()
@@ -23,6 +26,11 @@ namespace Mentor.Web.Services
                 return null;
 
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CourseViewModel>>>();
+
+            foreach (var item in responseSuccess.Data)
+            {
+                item.Picture = _photoHelper.GetPhotoUrl(item.Picture);
+            }
 
             return responseSuccess.Data;
         }
@@ -48,6 +56,8 @@ namespace Mentor.Web.Services
 
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<CourseViewModel>>();
 
+            responseSuccess.Data.Picture = _photoHelper.GetPhotoUrl(responseSuccess.Data.Picture);
+
             return responseSuccess.Data;
         }
 
@@ -71,6 +81,11 @@ namespace Mentor.Web.Services
                 return null;
 
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CourseViewModel>>>();
+
+            foreach (var item in responseSuccess.Data)
+            {
+                item.Picture = _photoHelper.GetPhotoUrl(item.Picture);
+            }
 
             return responseSuccess.Data;
         }
