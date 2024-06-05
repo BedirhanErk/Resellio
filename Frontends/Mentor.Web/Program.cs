@@ -1,8 +1,10 @@
+using FluentValidation.AspNetCore;
 using Mentor.Shared.Services;
 using Mentor.Web.Extensions;
 using Mentor.Web.Handler;
 using Mentor.Web.Helpers;
 using Mentor.Web.Models;
+using Mentor.Web.Validators;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,7 +34,7 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAccessTokenManagement();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CourseCreateInputValidator>());
 
 var app = builder.Build();
 
