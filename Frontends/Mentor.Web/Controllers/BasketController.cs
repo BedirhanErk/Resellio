@@ -22,9 +22,9 @@ namespace Mentor.Web.Controllers
             return View(basket);
         }
 
-        public async Task<IActionResult> AddBasketItem(string courseId)
+        public async Task<IActionResult> AddBasketItem(string id)
         {
-            var course = await _catalogService.GetCourseById(courseId);
+            var course = await _catalogService.GetCourseById(id);
 
             var basketItem = new BasketItemViewModel();
             basketItem.Quantity = 1;
@@ -37,9 +37,9 @@ namespace Mentor.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> RemoveBasketItem(string courseId)
+        public async Task<IActionResult> RemoveBasketItem(string id)
         {
-            await _basketService.RemoveBasketItem(courseId);
+            await _basketService.RemoveBasketItem(id);
 
             return RedirectToAction(nameof(Index));
         }

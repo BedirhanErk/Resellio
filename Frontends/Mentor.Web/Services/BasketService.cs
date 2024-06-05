@@ -51,7 +51,7 @@ namespace Mentor.Web.Services
             else
             {
                 basket = new BasketViewModel();
-                basket.BasketItems.Add(basketItemViewModel);
+                basket.BasketItems = [basketItemViewModel];
             }
 
             await SaveOrUpdate(basket);
