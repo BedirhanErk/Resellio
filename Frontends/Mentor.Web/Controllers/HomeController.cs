@@ -18,5 +18,12 @@ namespace Mentor.Web.Controllers
 
             return View(courses);
         }
+
+        public async Task<IActionResult> Detail(string id)
+        {
+            var course = await _catalogService.GetCourseById(id);
+
+            return View(course);
+        }
     }
 }
