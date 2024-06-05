@@ -1,4 +1,5 @@
-﻿using Mentor.Web.Models.Basket;
+﻿using Mentor.Shared.Dtos;
+using Mentor.Web.Models.Basket;
 using Mentor.Web.Services.Interfaces;
 
 namespace Mentor.Web.Services
@@ -12,29 +13,71 @@ namespace Mentor.Web.Services
             _httpClient = httpClient;
         }
 
-        public Task<BasketViewModel> GetBasket(string userId)
+        public async Task<BasketViewModel> GetBasket()
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.GetAsync("basket");
+
+            if (!response.IsSuccessStatusCode)
+                return null;
+
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<BasketViewModel>>();
+
+            return responseSuccess.Data;
         }
 
-        public Task<bool> SaveOrUpdate(BasketViewModel basketViewModel)
+        public async Task<bool> SaveOrUpdate(BasketViewModel basketViewModel)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.PostAsJsonAsync("basket", basketViewModel);
+
+            return response.IsSuccessStatusCode;
         }
 
-        public Task<bool> Delete(string userId)
+        public async Task<bool> Delete()
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.DeleteAsync("basket");
+
+            return response.IsSuccessStatusCode;
         }
 
-        public Task AddBasketItem(BasketItemViewModel basketItemViewModel)
+        public async Task AddBasketItem(BasketItemViewModel basketItemViewModel)
         {
-            throw new NotImplementedException();
+            var basket = await GetBasket();
+
+            if (basket != null)
+            {
+                if (!basket.BasketItems.Any(x=> x.CourseId == basketItemViewModel.CourseId))
+                    basket.BasketItems.Add(basketItemViewModel);
+            }
+            else
+            {
+                basket = new BasketViewModel();
+                basket.BasketItems.Add(basketItemViewModel);
+            }
+
+            await SaveOrUpdate(basket);
         }
 
-        public Task<bool> RemoveBasketItem(string courseId)
+        public async Task<bool> RemoveBasketItem(string courseId)
         {
-            throw new NotImplementedException();
+            var basket = await GetBasket();
+
+            if (basket == null)
+                return false;
+
+            var basketItem = basket.BasketItems.FirstOrDefault(x => x.CourseId == courseId);
+
+            if (basketItem == null)
+                return false;
+
+            var deleteResult = basket.BasketItems.Remove(basketItem);
+
+            if (!deleteResult)
+                return false;
+
+            if (!basket.BasketItems.Any())
+                basket.DiscountCode = null;
+
+            return await SaveOrUpdate(basket);
         }
 
         public Task<bool> ApplyDiscount(string discountCode)
