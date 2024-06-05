@@ -39,9 +39,7 @@ namespace Mentor.Web.Handler
             }
 
             if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-            {
                 throw new UnAuthorizeException();
-            }
 
             return response;
         }
