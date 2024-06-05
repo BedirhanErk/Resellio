@@ -19,7 +19,7 @@
             <div class="card-body">
                 <h4 class="card-title">Price: @Model.Price</h4>
                 <div class="d-grid">
-                    <a class="btn btn-primary" href="#">Add to cart</a>
+                    <a class="btn btn-primary" asp-controller="Basket" asp-action="AddBasketItem" asp-route-id="@Model.Id">Add to cart</a>
                 </div>
             </div>
         </div>

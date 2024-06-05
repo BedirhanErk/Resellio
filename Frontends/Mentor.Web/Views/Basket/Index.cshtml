@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model BasketViewModel
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Shopping Cart</h5>
+                @if (Model != null && Model.BasketItems.Any())
+                {
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Menu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.BasketItems)
+                            {
+                                <tr>
+                                    <td>@item.CourseName</td>
+                                    <td>@item.CurrentPrice</td>
+                                    <td>
+                                        <a class="btn btn-danger" asp-controller="Basket" asp-action="RemoveBasketItem" asp-route-id="@item.CourseId">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+
+                            @if (Model.HasDiscount)
+                            {
+                                <tr>
+                                    <td>Discount Rate</td>
+                                    <th colspan="2">% @Model.DiscountRate.Value</th>
+                                </tr>
+                            }
+
+                            <tr>
+                                <td>@(Model.HasDiscount ? "Discounted Price" : "Price")</td>
+                                <th colspan="2">@Model.TotalPrice</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info">Your cart is empty.</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
