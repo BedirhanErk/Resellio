@@ -20,6 +20,7 @@
                 <img src="@item.PictureUrl" class="card-img-top" alt="@item.Name">
                 <div class="card-body">
                     <h5 class="card-title">@item.Name</h5>
+                    <span class="badge text-bg-primary">Category: @item.Category.Name</span>
                     <p class="card-text">@item.ShortDescription</p>
                     <h4>@item.Price</h4>
                     <a class="btn btn-info" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">Detail</a>

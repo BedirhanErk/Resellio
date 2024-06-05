@@ -10,7 +10,8 @@
             <img class="card-img-top" src="@Model.PictureUrl" alt="@Model.Name" />
             <div class="card-body">
                 <h5 class="card-title">@Model.Name</h5>
-                <p class="card-text">@Model.Description</p>
+                <span class="badge text-bg-primary">Category: @Model.Category.Name</span>
+                <label class="card-text">@Model.Description</label>
             </div>
         </div>
     </div>
