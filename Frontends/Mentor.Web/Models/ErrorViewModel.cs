@@ -1,4 +1,4 @@
-namespace UdemyRabbitMQWeb.Excel.Models
+namespace Mentor.Web.Models
 {
     public class ErrorViewModel
     {
