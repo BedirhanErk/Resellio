@@ -10,6 +10,6 @@ namespace Mentor.Web.Services.Interfaces
         Task AddBasketItem(BasketItemViewModel basketItemViewModel);
         Task<bool> RemoveBasketItem(string courseId);
         Task<bool> ApplyDiscount(string discountCode);
-        Task<bool> CancelApplyDiscount();
+        Task<bool> CancelAppliedDiscount();
     }
 }

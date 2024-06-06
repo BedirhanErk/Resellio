@@ -1,4 +1,5 @@
 ﻿using Mentor.Web.Models.Basket;
+using Mentor.Web.Models.Discount;
 using Mentor.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -42,6 +43,22 @@ namespace Mentor.Web.Controllers
         public async Task<IActionResult> RemoveBasketItem(string id)
         {
             await _basketService.RemoveBasketItem(id);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> ApplyDiscount(DiscountApplyInput discountApplyInput)
+        {
+            var discountStatus = await _basketService.ApplyDiscount(discountApplyInput.Code);
+
+            TempData["discountStatus"] = discountStatus;
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> CancelAppliedDiscount()
+        {
+            await _basketService.CancelAppliedDiscount();
 
             return RedirectToAction(nameof(Index));
         }

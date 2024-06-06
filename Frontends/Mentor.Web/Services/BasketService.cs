@@ -84,7 +84,7 @@ namespace Mentor.Web.Services
 
         public async Task<bool> ApplyDiscount(string discountCode)
         {
-            await CancelApplyDiscount();
+            await CancelAppliedDiscount();
 
             var basket = await GetBasket();
 
@@ -102,7 +102,7 @@ namespace Mentor.Web.Services
             return await SaveOrUpdate(basket);
         }
 
-        public async Task<bool> CancelApplyDiscount()
+        public async Task<bool> CancelAppliedDiscount()
         {
             var basket = await GetBasket();
 
