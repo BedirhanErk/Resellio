@@ -23,5 +23,31 @@ namespace Mentor.Web.Controllers
 
             return View(new CheckoutInfoInput());
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Ckeckout(CheckoutInfoInput checkoutInfoInput)
+        {
+            var orderStatus = await _orderService.CreateOrder(checkoutInfoInput);
+
+            if (!orderStatus.IsSuccessful)
+            {
+                var basket = await _basketService.GetBasket();
+
+                ViewBag.basket = basket;
+
+                ViewBag.error = orderStatus.Error;
+
+                return View();
+            }
+
+            return RedirectToAction(nameof(SuccessfulCheckout), new { orderId = orderStatus.OrderId});
+        }
+
+        public IActionResult SuccessfulCheckout(int orderId)
+        {
+            ViewBag.orderId = orderId;  
+
+            return View();
+        }
     }
 }
