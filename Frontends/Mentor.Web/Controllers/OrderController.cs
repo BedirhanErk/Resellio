@@ -25,7 +25,7 @@ namespace Mentor.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Ckeckout(CheckoutInfoInput checkoutInfoInput)
+        public async Task<IActionResult> Checkout(CheckoutInfoInput checkoutInfoInput)
         {
             var orderStatus = await _orderService.CreateOrder(checkoutInfoInput);
 

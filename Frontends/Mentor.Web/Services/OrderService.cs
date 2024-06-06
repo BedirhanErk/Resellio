@@ -58,8 +58,9 @@ namespace Mentor.Web.Services
                 var orderItem = new CreateOrderItemInput();
                 orderItem.CourseId = item.CourseId;
                 orderItem.CourseName = item.CourseName;
-                orderItem.Price = item.Price;
+                orderItem.Price = item.CurrentPrice;
                 orderItem.PictureUrl = "";
+                createOrderInput.OrderItems.Add(orderItem);
             }
 
             createOrderInput.Address = new CreateAddressInput();
@@ -75,6 +76,9 @@ namespace Mentor.Web.Services
                 return new OrderCreatedViewModel() { IsSuccessful = false, Error = "Order could not be created." };
 
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<OrderCreatedViewModel>>();
+            responseSuccess.Data.IsSuccessful = true;
+
+            await _basketService.Delete();
 
             return responseSuccess.Data;
         }
