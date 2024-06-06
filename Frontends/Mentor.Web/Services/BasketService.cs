@@ -53,7 +53,7 @@ namespace Mentor.Web.Services
             else
             {
                 basket = new BasketViewModel();
-                basket.BasketItems = [basketItemViewModel];
+                basket.BasketItems.Add(basketItemViewModel);
             }
 
             await SaveOrUpdate(basket);
@@ -88,7 +88,7 @@ namespace Mentor.Web.Services
 
             var basket = await GetBasket();
 
-            if (basket == null || basket.DiscountCode == null)
+            if (basket == null)
                 return false;
 
             var discount = await _discountService.GetDiscount(discountCode);
@@ -96,8 +96,7 @@ namespace Mentor.Web.Services
             if (discount == null)
                 return false;
 
-            basket.DiscountCode = discount.Code;
-            basket.DiscountRate = discount.Rate;
+            basket.ApplyDiscount(discount.Code, discount.Rate);
 
             return await SaveOrUpdate(basket);
         }
@@ -109,7 +108,7 @@ namespace Mentor.Web.Services
             if (basket == null || basket.DiscountCode == null)
                 return false;
 
-            basket.DiscountCode = null;
+            basket.CancelDiscount();
 
             return await SaveOrUpdate(basket);
         }

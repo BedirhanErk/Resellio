@@ -49,6 +49,12 @@ namespace Mentor.Web.Controllers
 
         public async Task<IActionResult> ApplyDiscount(DiscountApplyInput discountApplyInput)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["discountError"] = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).FirstOrDefault();
+                return RedirectToAction(nameof(Index));
+            }
+
             var discountStatus = await _basketService.ApplyDiscount(discountApplyInput.Code);
 
             TempData["discountStatus"] = discountStatus;

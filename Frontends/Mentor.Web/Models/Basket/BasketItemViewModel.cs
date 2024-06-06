@@ -10,7 +10,7 @@
 
         public decimal Price { get; set; }
 
-        private decimal? DiscountPrice { get; set; }
+        private decimal? DiscountPrice;
 
         public decimal CurrentPrice
         {
