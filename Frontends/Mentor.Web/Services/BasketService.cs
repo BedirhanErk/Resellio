@@ -7,10 +7,12 @@ namespace Mentor.Web.Services
     public class BasketService : IBasketService
     {
         private readonly HttpClient _httpClient;
+        private readonly IDiscountService _discountService;
 
-        public BasketService(HttpClient httpClient)
+        public BasketService(HttpClient httpClient, IDiscountService discountService)
         {
             _httpClient = httpClient;
+            _discountService = discountService;
         }
 
         public async Task<BasketViewModel> GetBasket()
@@ -80,14 +82,36 @@ namespace Mentor.Web.Services
             return await SaveOrUpdate(basket);
         }
 
-        public Task<bool> ApplyDiscount(string discountCode)
+        public async Task<bool> ApplyDiscount(string discountCode)
         {
-            throw new NotImplementedException();
+            await CancelApplyDiscount();
+
+            var basket = await GetBasket();
+
+            if (basket == null || basket.DiscountCode == null)
+                return false;
+
+            var discount = await _discountService.GetDiscount(discountCode);
+
+            if (discount == null)
+                return false;
+
+            basket.DiscountCode = discount.Code;
+            basket.DiscountRate = discount.Rate;
+
+            return await SaveOrUpdate(basket);
         }
 
-        public Task<bool> CancelApplyDiscount()
+        public async Task<bool> CancelApplyDiscount()
         {
-            throw new NotImplementedException();
+            var basket = await GetBasket();
+
+            if (basket == null || basket.DiscountCode == null)
+                return false;
+
+            basket.DiscountCode = null;
+
+            return await SaveOrUpdate(basket);
         }
     }
 }
