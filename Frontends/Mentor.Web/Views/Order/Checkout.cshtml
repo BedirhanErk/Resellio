@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Checkout";
+}
+@model CheckoutInfoInput
+
+<form asp-controller="Order" asp-action="Checkout" method="post">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Address Information</h5>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Province"></label>
+                        <input class="form-control" type="text" asp-for="Province" />
+                        <span class="text-danger" asp-validation-for="Province"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="District"></label>
+                        <input class="form-control" type="text" asp-for="District" />
+                        <span class="text-danger" asp-validation-for="District"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Street"></label>
+                        <input class="form-control" type="text" asp-for="Street" />
+                        <span class="text-danger" asp-validation-for="Street"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="ZipCode"></label>
+                        <input class="form-control" type="text" asp-for="ZipCode" />
+                        <span class="text-danger" asp-validation-for="ZipCode"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Line"></label>
+                        <textarea class="form-control" type="text" asp-for="Line"></textarea>
+                        <span class="text-danger" asp-validation-for="Line"></span>
+                    </div>
+                    <h5 class="card-title">Payment Details</h5>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Name"></label>
+                        <input class="form-control" type="text" asp-for="Name" />
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="CardNumber"></label>
+                        <input class="form-control" type="text" asp-for="CardNumber" />
+                        <span class="text-danger" asp-validation-for="CardNumber"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Expiration"></label>
+                        <input class="form-control" type="text" asp-for="Expiration" />
+                        <span class="text-danger" asp-validation-for="Expiration"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="CVV"></label>
+                        <input class="form-control" type="text" asp-for="CVV" />
+                        <span class="text-danger" asp-validation-for="CVV"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Payment Summary</h5>
+                    <table class="table table-striped">
+                        @foreach (var item in ViewBag.basket.BasketItems as List<BasketItemViewModel>)
+                        {
+                            <tr>
+                                <td>@item.CourseName</td>
+                                <td>@item.Price</td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>@(ViewBag.basket.HasDiscount ? "Total Discounted Price" : "Total Price")</td>
+                            <td>@ViewBag.basket.TotalPrice</td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-success" type="submit">Complete Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

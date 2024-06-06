@@ -1,0 +1,27 @@
+﻿using Mentor.Web.Models.Order;
+using Mentor.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Mentor.Web.Controllers
+{
+    public class OrderController : Controller
+    {
+        private readonly IBasketService _basketService;
+        private readonly IOrderService _orderService;
+
+        public OrderController(IBasketService basketService, IOrderService orderService)
+        {
+            _basketService = basketService;
+            _orderService = orderService;
+        }
+
+        public async Task<IActionResult> Checkout()
+        {
+            var basket = await _basketService.GetBasket();
+
+            ViewBag.basket = basket;
+
+            return View(new CheckoutInfoInput());
+        }
+    }
+}
