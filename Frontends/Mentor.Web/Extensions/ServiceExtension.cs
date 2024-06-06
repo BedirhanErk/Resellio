@@ -36,6 +36,11 @@ namespace Mentor.Web.Extensions
                 opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayUri}/{serviceApiSettings.Discount.Path}");
             }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
+            builder.Services.AddHttpClient<IPaymentService, PaymentService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayUri}/{serviceApiSettings.Payment.Path}");
+            }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
             builder.Services.AddHttpClient<IIdentityService, IdentityService>();
             builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
         }
