@@ -1,4 +1,6 @@
+using MassTransit;
 using MediatR;
+using Mentor.Services.Order.Application.Consumers;
 using Mentor.Services.Order.Infrastructure;
 using Mentor.Shared.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,6 +12,27 @@ using Microsoft.IdentityModel.JsonWebTokens;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<CreateOrderMessageCommandConsumer>();
+
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration["RabbitMQUrl"], "/", host =>
+        {
+            host.Username("guest");
+            host.Password("guest");
+        });
+
+        cfg.ReceiveEndpoint("create-order", e =>
+        {
+            e.ConfigureConsumer<CreateOrderMessageCommandConsumer>(context);
+        });
+    });
+});
+
+builder.Services.AddMassTransitHostedService();
 
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 
