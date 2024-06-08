@@ -6,6 +6,6 @@ namespace Mentor.Web.Services.Interfaces
     {
         Task<List<OrderViewModel>> GetOrders();
         Task<OrderCreatedViewModel> CreateOrder(CheckoutInfoInput checkoutInfoInput);
-        Task SuspendOrder(CheckoutInfoInput checkoutInfoInput);
+        Task<OrderSuspendViewModel> SuspendOrder(CheckoutInfoInput checkoutInfoInput);
     }
 }

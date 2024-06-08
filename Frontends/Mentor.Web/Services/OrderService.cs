@@ -83,9 +83,45 @@ namespace Mentor.Web.Services
             return responseSuccess.Data;
         }
 
-        public Task SuspendOrder(CheckoutInfoInput checkoutInfoInput)
+        public async Task<OrderSuspendViewModel> SuspendOrder(CheckoutInfoInput checkoutInfoInput)
         {
-            throw new NotImplementedException();
+            var basket = await _basketService.GetBasket();
+
+            var createOrderInput = new CreateOrderInput();
+            createOrderInput.BuyerId = _sharedIdentityService.UserId;
+
+            createOrderInput.OrderItems = new List<CreateOrderItemInput>();
+            foreach (var item in basket.BasketItems)
+            {
+                var orderItem = new CreateOrderItemInput();
+                orderItem.CourseId = item.CourseId;
+                orderItem.CourseName = item.CourseName;
+                orderItem.Price = item.CurrentPrice;
+                orderItem.PictureUrl = "";
+                createOrderInput.OrderItems.Add(orderItem);
+            }
+
+            createOrderInput.Address = new CreateAddressInput();
+            createOrderInput.Address.Province = checkoutInfoInput.Province;
+            createOrderInput.Address.District = checkoutInfoInput.District;
+            createOrderInput.Address.Street = checkoutInfoInput.Street;
+            createOrderInput.Address.ZipCode = checkoutInfoInput.ZipCode;
+            createOrderInput.Address.Line = checkoutInfoInput.Line;
+
+            var payment = new PaymentInfoInput();
+            payment.Name = checkoutInfoInput.Name;
+            payment.CardNumber = checkoutInfoInput.CardNumber;
+            payment.Expiration = checkoutInfoInput.Expiration;
+            payment.CVV = checkoutInfoInput.CVV;
+            payment.TotalPrice = basket.TotalPrice;
+            payment.Order = createOrderInput;
+
+            var paymentResponse = await _paymentService.ReceivePayment(payment);
+
+            if (!paymentResponse)
+                return new OrderSuspendViewModel() { IsSuccessful = false, Error = "Payment not received." };
+
+            return new OrderSuspendViewModel() { IsSuccessful = true };
         }
     }
 }
