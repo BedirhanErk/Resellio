@@ -47,5 +47,12 @@ namespace Mentor.Web.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> CheckoutHistory()
+        {
+            var orders = await _orderService.GetOrders();
+
+            return View(orders);
+        }
     }
 }

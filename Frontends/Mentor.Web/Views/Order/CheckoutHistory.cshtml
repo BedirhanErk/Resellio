@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "CheckoutHistory";
+}
+@model List<OrderViewModel>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Checkout History</h5>
+                @if (Model.Any())
+                {
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Order No</th>
+                                <th>Purchase Date</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model)
+                            {
+                                <tr>
+                                    <td>@order.Id</td>
+                                    <td>@order.CreatedDate.ToShortDateString()</td>
+                                    <td>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <th>Name</th>
+                                                <th>Price</th>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in order.OrderItems)
+                                                {
+                                                    <tr>
+                                                        <td>@item.CourseName</td>
+                                                        <td>@item.Price</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info">You have not purchased any products yet.</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
