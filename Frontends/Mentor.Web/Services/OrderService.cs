@@ -121,6 +121,8 @@ namespace Mentor.Web.Services
             if (!paymentResponse)
                 return new OrderSuspendViewModel() { IsSuccessful = false, Error = "Payment not received." };
 
+            await _basketService.Delete();
+
             return new OrderSuspendViewModel() { IsSuccessful = true };
         }
     }

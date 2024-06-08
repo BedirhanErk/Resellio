@@ -21,7 +21,7 @@ namespace Mentor.Services.Payment.Controllers
         [HttpPost]
         public async Task<IActionResult> ReceivePayment(PaymentDto payment)
         {
-            var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri("queue: create-order-service"));
+            var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri("queue:create-order"));
 
             var createOrderMessageCommand = new CreateOrderMessageCommand();
             createOrderMessageCommand.BuyerId = payment.Order.BuyerId;

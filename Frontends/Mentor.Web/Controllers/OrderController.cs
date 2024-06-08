@@ -27,7 +27,7 @@ namespace Mentor.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Checkout(CheckoutInfoInput checkoutInfoInput)
         {
-            var orderStatus = await _orderService.CreateOrder(checkoutInfoInput);
+            var orderStatus = await _orderService.SuspendOrder(checkoutInfoInput);
 
             if (!orderStatus.IsSuccessful)
             {
@@ -40,13 +40,11 @@ namespace Mentor.Web.Controllers
                 return View();
             }
 
-            return RedirectToAction(nameof(SuccessfulCheckout), new { orderId = orderStatus.OrderId});
+            return RedirectToAction(nameof(SuccessfulCheckout));
         }
 
-        public IActionResult SuccessfulCheckout(int orderId)
+        public IActionResult SuccessfulCheckout()
         {
-            ViewBag.orderId = orderId;  
-
             return View();
         }
     }
