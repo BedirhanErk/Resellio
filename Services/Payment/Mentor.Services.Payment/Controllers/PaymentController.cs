@@ -10,7 +10,7 @@ namespace Mentor.Services.Payment.Controllers
     public class PaymentController : CustomBaseController
     {
         [HttpPost]
-        public IActionResult ReceivePayment(PaymentInfo payment)
+        public IActionResult ReceivePayment(PaymentDto payment)
         {
             return CreateActionResultInstance(Response<NoContent>.Success(200));
         }

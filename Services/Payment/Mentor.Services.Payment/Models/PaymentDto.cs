@@ -1,6 +1,6 @@
 ﻿namespace Mentor.Services.Payment.Models
 {
-    public class PaymentInfo
+    public class PaymentDto
     {
         public string Name { get; set; }
         public string CardNumber { get; set; }
