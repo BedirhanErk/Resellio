@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using Mass = MassTransit;
 using Mentor.Services.Catalog.Dtos;
 using Mentor.Services.Catalog.Models;
 using Mentor.Services.Catalog.Settings;
 using Mentor.Shared.Dtos;
 using MongoDB.Driver;
+using Mentor.Shared.Messages;
 
 namespace Mentor.Services.Catalog.Services
 {
@@ -12,14 +14,16 @@ namespace Mentor.Services.Catalog.Services
         private readonly IMongoCollection<Course> _courseCollection;
         private readonly IMongoCollection<Category> _categoryCollection;
         private readonly IMapper _mapper;
+        private readonly Mass.IPublishEndpoint _publishEndpoint;
 
-        public CourseService(IMapper mapper, IDatabaseSettings databaseSettings)
+        public CourseService(IMapper mapper, IDatabaseSettings databaseSettings, Mass.IPublishEndpoint publishEndpoint)
         {
             var client = new MongoClient(databaseSettings.ConnectionString);
             var database = client.GetDatabase(databaseSettings.DatabaseName);
             _courseCollection = database.GetCollection<Course>(databaseSettings.CourseCollectionName);
             _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
             _mapper = mapper;
+            _publishEndpoint = publishEndpoint;
         }
 
         public async Task<Response<List<CourseDto>>> GetAllAsync()
@@ -86,6 +90,8 @@ namespace Mentor.Services.Catalog.Services
 
             if (result == null)
                 return Response<NoContent>.Fail("Course not found", 404);
+
+            await _publishEndpoint.Publish(new CourseNameChangedEvent { CourseId = result.Id, UpdatedName = result.Name });
 
             return Response<NoContent>.Success(204);
         }
