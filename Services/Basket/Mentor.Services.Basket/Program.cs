@@ -1,3 +1,5 @@
+using MassTransit;
+using Mentor.Services.Basket.Consumers;
 using Mentor.Services.Basket.Services;
 using Mentor.Services.Basket.Settings;
 using Mentor.Shared.Services;
@@ -10,6 +12,27 @@ using Microsoft.IdentityModel.JsonWebTokens;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddMassTransit(x => {
+
+    x.AddConsumer<CourseNameChangedEventConsumer>();
+
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration["RabbitMQUrl"], "/", host =>
+        {
+            host.Username("guest");
+            host.Password("guest");
+        });
+
+        cfg.ReceiveEndpoint("course-name-changed-event-basket", e =>
+        {
+            e.ConfigureConsumer<CourseNameChangedEventConsumer>(context);
+        });
+    });
+});
+
+builder.Services.AddMassTransitHostedService();
 
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 

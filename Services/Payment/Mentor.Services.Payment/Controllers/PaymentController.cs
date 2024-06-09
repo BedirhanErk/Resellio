@@ -1,4 +1,4 @@
-﻿using MassTransit;
+﻿using Mass = MassTransit;
 using Mentor.Services.Payment.Models;
 using Mentor.Shared.ControllerBases;
 using Mentor.Shared.Dtos;
@@ -11,9 +11,9 @@ namespace Mentor.Services.Payment.Controllers
     [ApiController]
     public class PaymentController : CustomBaseController
     {
-        private readonly ISendEndpointProvider _sendEndpointProvider;
+        private readonly Mass.ISendEndpointProvider _sendEndpointProvider;
 
-        public PaymentController(ISendEndpointProvider sendEndpointProvider)
+        public PaymentController(Mass.ISendEndpointProvider sendEndpointProvider)
         {
             _sendEndpointProvider = sendEndpointProvider;
         }
@@ -44,7 +44,7 @@ namespace Mentor.Services.Payment.Controllers
 
             await sendEndpoint.Send(createOrderMessageCommand);
 
-            return CreateActionResultInstance(Shared.Dtos.Response<NoContent>.Success(200));
+            return CreateActionResultInstance(Response<NoContent>.Success(200));
         }
     }
 }
