@@ -1,7 +1,10 @@
+using Mentor.Gateway.Handlers;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<TokenExchangeDelegateHandler>();
 
 builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthenticationScheme", options =>
 {
@@ -10,7 +13,7 @@ builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthenticationScheme",
     options.RequireHttpsMetadata = false;
 });
 
-builder.Services.AddOcelot();
+builder.Services.AddOcelot().AddDelegatingHandler<TokenExchangeDelegateHandler>();
 
 builder.Configuration
     .SetBasePath(builder.Environment.ContentRootPath)
