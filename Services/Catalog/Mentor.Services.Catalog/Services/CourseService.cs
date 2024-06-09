@@ -91,7 +91,7 @@ namespace Mentor.Services.Catalog.Services
             if (result == null)
                 return Response<NoContent>.Fail("Course not found", 404);
 
-            await _publishEndpoint.Publish(new CourseNameChangedEvent { CourseId = result.Id, UpdatedName = result.Name });
+            await _publishEndpoint.Publish(new CourseNameChangedEvent { CourseId = updateCourse.Id, UpdatedName = updateCourse.Name });
 
             return Response<NoContent>.Success(204);
         }
