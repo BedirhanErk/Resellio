@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mentor.Services.Order.Domain\Resellio.Services.Order.Domain.csproj" />
+    <ProjectReference Include="..\Resellio.Services.Order.Domain\Resellio.Services.Order.Domain.csproj" />
+    <ProjectReference Include="..\Resellio.Services.Order.Domain\Resellio.Services.Order.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,7 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mentor.Services.Order.Application\Resellio.Services.Order.Application.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Resellio.Shared\Resellio.Shared.csproj" />
+    <ProjectReference Include="..\Resellio.Services.Order.Application\Resellio.Services.Order.Application.csproj" />
+    <ProjectReference Include="..\Resellio.Services.Order.Application\Resellio.Services.Order.Application.csproj" />
+    <ProjectReference Include="..\Resellio.Services.Order.Infrastructure\Resellio.Services.Order.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
