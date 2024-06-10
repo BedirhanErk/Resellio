@@ -1,9 +1,9 @@
-﻿using Mentor.Web.Handler;
-using Mentor.Web.Models;
-using Mentor.Web.Services;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Web.Handler;
+using Resellio.Web.Models;
+using Resellio.Web.Services;
+using Resellio.Web.Services.Interfaces;
 
-namespace Mentor.Web.Extensions
+namespace Resellio.Web.Extensions
 {
     public static class ServiceExtension
     {

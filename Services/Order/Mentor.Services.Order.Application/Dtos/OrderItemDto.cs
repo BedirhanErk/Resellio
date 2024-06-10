@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Order.Application.Dtos
+﻿namespace Resellio.Services.Order.Application.Dtos
 {
     public class OrderItemDto
     {

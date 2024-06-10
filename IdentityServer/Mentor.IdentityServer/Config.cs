@@ -3,7 +3,7 @@ using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
 
-namespace Mentor.IdentityServer
+namespace Resellio.IdentityServer
 {
     public static class Config
     {

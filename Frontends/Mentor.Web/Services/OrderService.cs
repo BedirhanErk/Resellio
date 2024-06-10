@@ -1,10 +1,10 @@
-﻿using Mentor.Shared.Dtos;
-using Mentor.Shared.Services;
-using Mentor.Web.Models.Order;
-using Mentor.Web.Models.Payment;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Shared.Dtos;
+using Resellio.Shared.Services;
+using Resellio.Web.Models.Order;
+using Resellio.Web.Models.Payment;
+using Resellio.Web.Services.Interfaces;
 
-namespace Mentor.Web.Services
+namespace Resellio.Web.Services
 {
     public class OrderService : IOrderService
     {

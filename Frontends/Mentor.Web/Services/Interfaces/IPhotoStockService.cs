@@ -1,6 +1,6 @@
-﻿using Mentor.Web.Models.PhotoStock;
+﻿using Resellio.Web.Models.PhotoStock;
 
-namespace Mentor.Web.Services.Interfaces
+namespace Resellio.Web.Services.Interfaces
 {
     public interface IPhotoStockService
     {

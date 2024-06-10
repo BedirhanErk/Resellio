@@ -1,6 +1,6 @@
-﻿using Mentor.Shared.Dtos;
+﻿using Resellio.Shared.Dtos;
 
-namespace Mentor.Services.Discount.Services
+namespace Resellio.Services.Discount.Services
 {
     public interface IDiscountService
     {

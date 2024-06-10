@@ -1,10 +1,10 @@
-﻿using Mentor.Web.Models;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Web.Models;
+using Resellio.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Web.Controllers
+namespace Resellio.Web.Controllers
 {
     public class AuthController : Controller
     {

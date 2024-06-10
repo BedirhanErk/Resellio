@@ -1,4 +1,4 @@
-﻿namespace Mentor.Web.Models.PhotoStock
+﻿namespace Resellio.Web.Models.PhotoStock
 {
     public class PhotoViewModel
     {

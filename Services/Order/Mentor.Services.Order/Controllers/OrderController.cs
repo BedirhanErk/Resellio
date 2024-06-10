@@ -1,11 +1,11 @@
 ﻿using MediatR;
-using Mentor.Services.Order.Application.Commands;
-using Mentor.Services.Order.Application.Queries;
-using Mentor.Shared.ControllerBases;
-using Mentor.Shared.Services;
+using Resellio.Services.Order.Application.Commands;
+using Resellio.Services.Order.Application.Queries;
+using Resellio.Shared.ControllerBases;
+using Resellio.Shared.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Services.Order.Controllers
+namespace Resellio.Services.Order.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

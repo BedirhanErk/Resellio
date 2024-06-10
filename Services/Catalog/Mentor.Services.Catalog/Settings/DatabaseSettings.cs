@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Catalog.Settings
+﻿namespace Resellio.Services.Catalog.Settings
 {
     public class DatabaseSettings : IDatabaseSettings
     {

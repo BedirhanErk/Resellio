@@ -1,6 +1,6 @@
-﻿using Mentor.Services.Order.Domain.Core;
+﻿using Resellio.Services.Order.Domain.Core;
 
-namespace Mentor.Services.Order.Domain.OrderAggregate
+namespace Resellio.Services.Order.Domain.OrderAggregate
 {
     public class Address : ValueObject
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Mentor.Services.Order.Infrastructure.Migrations
+namespace Resellio.Services.Order.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

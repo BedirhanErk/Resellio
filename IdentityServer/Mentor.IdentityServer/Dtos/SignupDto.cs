@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Mentor.IdentityServer.Dtos
+namespace Resellio.IdentityServer.Dtos
 {
     public class SignupDto
     {

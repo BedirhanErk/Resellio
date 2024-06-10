@@ -1,8 +1,8 @@
-﻿using Mentor.Web.Models.Order;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Web.Models.Order;
+using Resellio.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Web.Controllers
+namespace Resellio.Web.Controllers
 {
     public class OrderController : Controller
     {

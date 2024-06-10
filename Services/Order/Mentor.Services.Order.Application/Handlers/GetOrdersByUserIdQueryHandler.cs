@@ -1,12 +1,12 @@
 ﻿using MediatR;
-using Mentor.Services.Order.Application.Dtos;
-using Mentor.Services.Order.Application.Mapping;
-using Mentor.Services.Order.Application.Queries;
-using Mentor.Services.Order.Infrastructure;
-using Mentor.Shared.Dtos;
+using Resellio.Services.Order.Application.Dtos;
+using Resellio.Services.Order.Application.Mapping;
+using Resellio.Services.Order.Application.Queries;
+using Resellio.Services.Order.Infrastructure;
+using Resellio.Shared.Dtos;
 using Microsoft.EntityFrameworkCore;
 
-namespace Mentor.Services.Order.Application.Handlers
+namespace Resellio.Services.Order.Application.Handlers
 {
     public class GetOrdersByUserIdQueryHandler : IRequestHandler<GetOrdersByUserIdQuery, Response<List<OrderDto>>>
     {

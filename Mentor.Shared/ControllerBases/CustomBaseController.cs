@@ -1,7 +1,7 @@
-﻿using Mentor.Shared.Dtos;
+﻿using Resellio.Shared.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Shared.ControllerBases
+namespace Resellio.Shared.ControllerBases
 {
     public class CustomBaseController : ControllerBase
     {

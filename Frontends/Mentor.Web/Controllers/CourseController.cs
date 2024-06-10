@@ -1,11 +1,11 @@
-﻿using Mentor.Shared.Services;
-using Mentor.Web.Models.Catalog;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Shared.Services;
+using Resellio.Web.Models.Catalog;
+using Resellio.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Mentor.Web.Controllers
+namespace Resellio.Web.Controllers
 {
     [Authorize]
     public class CourseController : Controller

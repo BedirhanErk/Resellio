@@ -1,6 +1,6 @@
-﻿using Mentor.IdentityServer.Dtos;
-using Mentor.IdentityServer.Models;
-using Mentor.Shared.Dtos;
+﻿using Resellio.IdentityServer.Dtos;
+using Resellio.IdentityServer.Models;
+using Resellio.Shared.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using static IdentityServer4.IdentityServerConstants;
 
-namespace Mentor.IdentityServer.Controllers
+namespace Resellio.IdentityServer.Controllers
 {
     [Authorize(LocalApi.PolicyName)]
     [Route("api/[controller]/[action]")]

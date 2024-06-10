@@ -1,11 +1,11 @@
 ﻿using Mass = MassTransit;
-using Mentor.Services.Payment.Models;
-using Mentor.Shared.ControllerBases;
-using Mentor.Shared.Dtos;
-using Mentor.Shared.Messages;
+using Resellio.Services.Payment.Models;
+using Resellio.Shared.ControllerBases;
+using Resellio.Shared.Dtos;
+using Resellio.Shared.Messages;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Services.Payment.Controllers
+namespace Resellio.Services.Payment.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

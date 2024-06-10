@@ -1,10 +1,10 @@
 ﻿using MassTransit;
-using Mentor.Services.Basket.Dtos;
-using Mentor.Services.Basket.Services;
-using Mentor.Shared.Messages;
+using Resellio.Services.Basket.Dtos;
+using Resellio.Services.Basket.Services;
+using Resellio.Shared.Messages;
 using System.Text.Json;
 
-namespace Mentor.Services.Basket.Consumers
+namespace Resellio.Services.Basket.Consumers
 {
     public class CourseNameChangedEventConsumer : IConsumer<CourseNameChangedEvent>
     {

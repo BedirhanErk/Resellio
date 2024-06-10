@@ -1,6 +1,6 @@
-@Mentor.Services.Payment_HostAddress = http://localhost:5192
+@Resellio.Services.Payment_HostAddress = http://localhost:5192
 
-GET {{Mentor.Services.Payment_HostAddress}}/weatherforecast/
+GET {{Resellio.Services.Payment_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

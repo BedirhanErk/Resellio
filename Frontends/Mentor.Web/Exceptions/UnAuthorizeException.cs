@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Mentor.Web.Exceptions
+namespace Resellio.Web.Exceptions
 {
     public class UnAuthorizeException : Exception
     {

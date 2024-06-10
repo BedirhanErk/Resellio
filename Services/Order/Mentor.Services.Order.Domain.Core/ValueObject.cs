@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Order.Domain.Core
+﻿namespace Resellio.Services.Order.Domain.Core
 {
     public abstract class ValueObject
     {

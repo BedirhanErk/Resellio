@@ -1,4 +1,4 @@
-﻿namespace Mentor.Web.Models.Basket
+﻿namespace Resellio.Web.Models.Basket
 {
     public class BasketItemViewModel
     {

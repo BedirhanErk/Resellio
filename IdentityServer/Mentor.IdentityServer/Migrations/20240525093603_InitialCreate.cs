@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Mentor.IdentityServer.Migrations
+namespace Resellio.IdentityServer.Migrations
 {
     public partial class InitialCreate : Migration
     {

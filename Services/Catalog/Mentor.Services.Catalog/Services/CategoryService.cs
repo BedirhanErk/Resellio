@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Mentor.Services.Catalog.Dtos;
-using Mentor.Services.Catalog.Models;
-using Mentor.Services.Catalog.Settings;
-using Mentor.Shared.Dtos;
+using Resellio.Services.Catalog.Dtos;
+using Resellio.Services.Catalog.Models;
+using Resellio.Services.Catalog.Settings;
+using Resellio.Shared.Dtos;
 using MongoDB.Driver;
 
-namespace Mentor.Services.Catalog.Services
+namespace Resellio.Services.Catalog.Services
 {
     public class CategoryService : ICategoryService
     {

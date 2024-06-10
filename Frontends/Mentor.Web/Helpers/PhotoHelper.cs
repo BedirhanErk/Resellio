@@ -1,7 +1,7 @@
-﻿using Mentor.Web.Models;
+﻿using Resellio.Web.Models;
 using Microsoft.Extensions.Options;
 
-namespace Mentor.Web.Helpers
+namespace Resellio.Web.Helpers
 {
     public class PhotoHelper
     {

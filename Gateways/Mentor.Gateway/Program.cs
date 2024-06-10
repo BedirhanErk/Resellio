@@ -1,4 +1,4 @@
-using Mentor.Gateway.Handlers;
+using Resellio.Gateway.Handlers;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 

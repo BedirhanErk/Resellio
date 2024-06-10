@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Mentor.Services.Order.Application.Mapping
+namespace Resellio.Services.Order.Application.Mapping
 {
     public static class ObjectMapper
     {

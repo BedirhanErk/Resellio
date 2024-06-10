@@ -1,9 +1,9 @@
 ﻿using Dapper;
-using Mentor.Shared.Dtos;
+using Resellio.Shared.Dtos;
 using Npgsql;
 using System.Data;
 
-namespace Mentor.Services.Discount.Services
+namespace Resellio.Services.Discount.Services
 {
     public class DiscountService : IDiscountService
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Mentor.Services.Catalog.Dtos;
-using Mentor.Services.Catalog.Models;
+using Resellio.Services.Catalog.Dtos;
+using Resellio.Services.Catalog.Models;
 
-namespace Mentor.Services.Catalog.Mapping
+namespace Resellio.Services.Catalog.Mapping
 {
     public class GeneralMapping : Profile
     {

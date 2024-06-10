@@ -1,4 +1,4 @@
-﻿namespace Mentor.Web.Models.Order
+﻿namespace Resellio.Web.Models.Order
 {
     public class OrderViewModel
     {

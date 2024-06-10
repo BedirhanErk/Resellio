@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.PhotoStock.Dtos
+﻿namespace Resellio.Services.PhotoStock.Dtos
 {
     public class PhotoDto
     {

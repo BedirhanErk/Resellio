@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Mentor.Shared.Services
+namespace Resellio.Shared.Services
 {
     public class SharedIdentityService : ISharedIdentityService
     {

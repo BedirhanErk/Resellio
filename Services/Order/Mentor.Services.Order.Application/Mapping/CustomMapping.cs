@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Mentor.Services.Order.Application.Dtos;
+using Resellio.Services.Order.Application.Dtos;
 
-namespace Mentor.Services.Order.Application.Mapping
+namespace Resellio.Services.Order.Application.Mapping
 {
     public class CustomMapping : Profile
     {

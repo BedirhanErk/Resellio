@@ -1,4 +1,4 @@
-﻿namespace Mentor.Web.Models.Discount
+﻿namespace Resellio.Web.Models.Discount
 {
     public class DiscountViewModel
     {

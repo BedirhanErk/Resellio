@@ -1,8 +1,8 @@
-﻿using Mentor.Shared.Dtos;
-using Mentor.Web.Models.PhotoStock;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Shared.Dtos;
+using Resellio.Web.Models.PhotoStock;
+using Resellio.Web.Services.Interfaces;
 
-namespace Mentor.Web.Services
+namespace Resellio.Web.Services
 {
     public class PhotoStockService : IPhotoStockService
     {

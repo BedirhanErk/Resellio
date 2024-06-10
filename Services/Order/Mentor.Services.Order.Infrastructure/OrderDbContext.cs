@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Mentor.Services.Order.Infrastructure
+namespace Resellio.Services.Order.Infrastructure
 {
     public class OrderDbContext : DbContext
     {

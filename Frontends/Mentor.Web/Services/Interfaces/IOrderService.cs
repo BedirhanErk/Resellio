@@ -1,6 +1,6 @@
-﻿using Mentor.Web.Models.Order;
+﻿using Resellio.Web.Models.Order;
 
-namespace Mentor.Web.Services.Interfaces
+namespace Resellio.Web.Services.Interfaces
 {
     public interface IOrderService
     {

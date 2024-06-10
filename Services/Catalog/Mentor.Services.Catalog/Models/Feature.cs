@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Catalog.Models
+﻿namespace Resellio.Services.Catalog.Models
 {
     public class Feature
     {

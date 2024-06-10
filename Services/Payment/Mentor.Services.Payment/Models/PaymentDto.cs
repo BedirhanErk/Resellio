@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Payment.Models
+﻿namespace Resellio.Services.Payment.Models
 {
     public class PaymentDto
     {

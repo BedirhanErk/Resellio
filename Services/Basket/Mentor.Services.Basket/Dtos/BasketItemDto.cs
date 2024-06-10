@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Basket.Dtos
+﻿namespace Resellio.Services.Basket.Dtos
 {
     public class BasketItemDto
     {

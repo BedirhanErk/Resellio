@@ -1,7 +1,7 @@
 using MassTransit;
-using Mentor.Services.Catalog.Mapping;
-using Mentor.Services.Catalog.Services;
-using Mentor.Services.Catalog.Settings;
+using Resellio.Services.Catalog.Mapping;
+using Resellio.Services.Catalog.Services;
+using Resellio.Services.Catalog.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;

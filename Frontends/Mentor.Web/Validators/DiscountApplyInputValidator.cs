@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Mentor.Web.Models.Discount;
+using Resellio.Web.Models.Discount;
 
-namespace Mentor.Web.Validators
+namespace Resellio.Web.Validators
 {
     public class DiscountApplyInputValidator : AbstractValidator<DiscountApplyInput>
     {

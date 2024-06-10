@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mentor.Shared.Dtos
+namespace Resellio.Shared.Dtos
 {
     public class ErrorDto
     {

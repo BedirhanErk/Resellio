@@ -1,9 +1,9 @@
-﻿using Mentor.Web.Exceptions;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Web.Exceptions;
+using Resellio.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
-namespace Mentor.Web.Handler
+namespace Resellio.Web.Handler
 {
     public class ResourceOwnerPasswordTokenHandler : DelegatingHandler
     {

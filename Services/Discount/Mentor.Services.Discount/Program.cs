@@ -1,5 +1,5 @@
-using Mentor.Services.Discount.Services;
-using Mentor.Shared.Services;
+using Resellio.Services.Discount.Services;
+using Resellio.Shared.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;

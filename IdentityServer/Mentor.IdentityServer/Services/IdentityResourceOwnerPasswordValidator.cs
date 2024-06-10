@@ -1,11 +1,11 @@
 ﻿using IdentityModel;
 using IdentityServer4.Validation;
-using Mentor.IdentityServer.Models;
+using Resellio.IdentityServer.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Mentor.IdentityServer.Services
+namespace Resellio.IdentityServer.Services
 {
     public class IdentityResourceOwnerPasswordValidator : IResourceOwnerPasswordValidator
     {

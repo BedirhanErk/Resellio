@@ -1,6 +1,6 @@
-@Mentor.Services.Basket_HostAddress = http://localhost:5156
+@Resellio.Services.Basket_HostAddress = http://localhost:5156
 
-GET {{Mentor.Services.Basket_HostAddress}}/weatherforecast/
+GET {{Resellio.Services.Basket_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

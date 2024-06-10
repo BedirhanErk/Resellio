@@ -1,6 +1,6 @@
-﻿using Mentor.Web.Models.Catalog;
+﻿using Resellio.Web.Models.Catalog;
 
-namespace Mentor.Web.Services.Interfaces
+namespace Resellio.Web.Services.Interfaces
 {
     public interface ICatalogService
     {

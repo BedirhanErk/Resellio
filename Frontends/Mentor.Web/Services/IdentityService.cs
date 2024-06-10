@@ -1,7 +1,7 @@
 ﻿using IdentityModel.Client;
-using Mentor.Shared.Dtos;
-using Mentor.Web.Models;
-using Mentor.Web.Services.Interfaces;
+using Resellio.Shared.Dtos;
+using Resellio.Web.Models;
+using Resellio.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
 
-namespace Mentor.Web.Services
+namespace Resellio.Web.Services
 {
     public class IdentityService : IIdentityService
     {

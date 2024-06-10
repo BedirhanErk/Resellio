@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Mentor.Shared.Dtos
+namespace Resellio.Shared.Dtos
 {
     public class Response<T>
     {

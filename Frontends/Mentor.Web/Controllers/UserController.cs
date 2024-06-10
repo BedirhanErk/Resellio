@@ -1,8 +1,8 @@
-﻿using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Web.Controllers
+namespace Resellio.Web.Controllers
 {
     [Authorize]
     public class UserController : Controller

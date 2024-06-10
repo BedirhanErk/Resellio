@@ -1,6 +1,6 @@
-﻿using Mentor.Web.Models.Discount;
+﻿using Resellio.Web.Models.Discount;
 
-namespace Mentor.Web.Services.Interfaces
+namespace Resellio.Web.Services.Interfaces
 {
     public interface IDiscountService
     {

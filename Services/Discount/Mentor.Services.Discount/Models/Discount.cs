@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Discount.Models
+﻿namespace Resellio.Services.Discount.Models
 {
     [Dapper.Contrib.Extensions.Table("discount")]
     public class Discount

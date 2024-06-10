@@ -1,8 +1,8 @@
 using MassTransit;
 using MediatR;
-using Mentor.Services.Order.Application.Consumers;
-using Mentor.Services.Order.Infrastructure;
-using Mentor.Shared.Services;
+using Resellio.Services.Order.Application.Consumers;
+using Resellio.Services.Order.Infrastructure;
+using Resellio.Shared.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -57,11 +57,11 @@ builder.Services.AddDbContext<OrderDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), configure =>
     {
-        configure.MigrationsAssembly("Mentor.Services.Order.Infrastructure");
+        configure.MigrationsAssembly("Resellio.Services.Order.Infrastructure");
     });
 });
 
-builder.Services.AddMediatR(typeof(Mentor.Services.Order.Application.Handlers.CreateOrderCommandHandler).Assembly);
+builder.Services.AddMediatR(typeof(Resellio.Services.Order.Application.Handlers.CreateOrderCommandHandler).Assembly);
 builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 builder.Services.AddControllers(opt =>

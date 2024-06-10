@@ -1,6 +1,6 @@
-@Mentor.Services.PhotoStock_HostAddress = http://localhost:5058
+@Resellio.Services.PhotoStock_HostAddress = http://localhost:5058
 
-GET {{Mentor.Services.PhotoStock_HostAddress}}/weatherforecast/
+GET {{Resellio.Services.PhotoStock_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

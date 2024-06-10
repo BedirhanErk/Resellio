@@ -1,9 +1,9 @@
-﻿using Mentor.Shared.Dtos;
-using Mentor.Web.Helpers;
-using Mentor.Web.Models.Catalog;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Shared.Dtos;
+using Resellio.Web.Helpers;
+using Resellio.Web.Models.Catalog;
+using Resellio.Web.Services.Interfaces;
 
-namespace Mentor.Web.Services
+namespace Resellio.Web.Services
 {
     public class CatalogService : ICatalogService
     {

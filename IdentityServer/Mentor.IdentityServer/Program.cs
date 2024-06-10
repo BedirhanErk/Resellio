@@ -1,5 +1,5 @@
-﻿using Mentor.IdentityServer.Data;
-using Mentor.IdentityServer.Models;
+﻿using Resellio.IdentityServer.Data;
+using Resellio.IdentityServer.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +11,7 @@ using Serilog.Sinks.SystemConsole.Themes;
 using System;
 using System.Linq;
 
-namespace Mentor.IdentityServer
+namespace Resellio.IdentityServer
 {
     public class Program
     {

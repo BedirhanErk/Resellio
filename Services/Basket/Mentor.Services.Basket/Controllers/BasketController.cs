@@ -1,10 +1,10 @@
-﻿using Mentor.Services.Basket.Dtos;
-using Mentor.Services.Basket.Services;
-using Mentor.Shared.ControllerBases;
-using Mentor.Shared.Services;
+﻿using Resellio.Services.Basket.Dtos;
+using Resellio.Services.Basket.Services;
+using Resellio.Shared.ControllerBases;
+using Resellio.Shared.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Services.Basket.Controllers
+namespace Resellio.Services.Basket.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

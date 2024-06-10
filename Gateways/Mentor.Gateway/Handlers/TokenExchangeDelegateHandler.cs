@@ -1,6 +1,6 @@
 ﻿using IdentityModel.Client;
 
-namespace Mentor.Gateway.Handlers
+namespace Resellio.Gateway.Handlers
 {
     public class TokenExchangeDelegateHandler : DelegatingHandler
     {

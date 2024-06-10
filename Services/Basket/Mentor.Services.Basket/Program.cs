@@ -1,8 +1,8 @@
 using MassTransit;
-using Mentor.Services.Basket.Consumers;
-using Mentor.Services.Basket.Services;
-using Mentor.Services.Basket.Settings;
-using Mentor.Shared.Services;
+using Resellio.Services.Basket.Consumers;
+using Resellio.Services.Basket.Services;
+using Resellio.Services.Basket.Settings;
+using Resellio.Shared.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;

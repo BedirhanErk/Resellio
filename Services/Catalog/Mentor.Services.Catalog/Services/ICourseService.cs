@@ -1,7 +1,7 @@
-﻿using Mentor.Services.Catalog.Dtos;
-using Mentor.Shared.Dtos;
+﻿using Resellio.Services.Catalog.Dtos;
+using Resellio.Shared.Dtos;
 
-namespace Mentor.Services.Catalog.Services
+namespace Resellio.Services.Catalog.Services
 {
     public interface ICourseService
     {

@@ -1,8 +1,8 @@
 ﻿using IdentityModel.Client;
-using Mentor.Shared.Dtos;
-using Mentor.Web.Models;
+using Resellio.Shared.Dtos;
+using Resellio.Web.Models;
 
-namespace Mentor.Web.Services.Interfaces
+namespace Resellio.Web.Services.Interfaces
 {
     public interface IIdentityService
     {

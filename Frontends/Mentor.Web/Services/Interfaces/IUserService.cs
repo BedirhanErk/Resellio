@@ -1,6 +1,6 @@
-﻿using Mentor.Web.Models;
+﻿using Resellio.Web.Models;
 
-namespace Mentor.Web.Services.Interfaces
+namespace Resellio.Web.Services.Interfaces
 {
     public interface IUserService
     {

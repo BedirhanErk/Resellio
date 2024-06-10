@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Catalog.Dtos
+﻿namespace Resellio.Services.Catalog.Dtos
 {
     public class CourseDto
     {

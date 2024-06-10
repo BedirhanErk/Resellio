@@ -1,9 +1,9 @@
-﻿using Mentor.Services.Catalog.Dtos;
-using Mentor.Services.Catalog.Services;
-using Mentor.Shared.ControllerBases;
+﻿using Resellio.Services.Catalog.Dtos;
+using Resellio.Services.Catalog.Services;
+using Resellio.Shared.ControllerBases;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Services.Catalog.Controllers
+namespace Resellio.Services.Catalog.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

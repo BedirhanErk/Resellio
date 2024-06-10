@@ -1,10 +1,10 @@
-﻿using Mentor.Web.Models.Basket;
-using Mentor.Web.Models.Discount;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Web.Models.Basket;
+using Resellio.Web.Models.Discount;
+using Resellio.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Web.Controllers
+namespace Resellio.Web.Controllers
 {
     [Authorize]
     public class BasketController : Controller

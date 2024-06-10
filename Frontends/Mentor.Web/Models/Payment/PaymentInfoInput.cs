@@ -1,6 +1,6 @@
-﻿using Mentor.Web.Models.Order;
+﻿using Resellio.Web.Models.Order;
 
-namespace Mentor.Web.Models.Payment
+namespace Resellio.Web.Models.Payment
 {
     public class PaymentInfoInput
     {

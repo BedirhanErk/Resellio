@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Mentor.Services.Catalog.Models
+namespace Resellio.Services.Catalog.Models
 {
     public class Category
     {

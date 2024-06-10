@@ -1,11 +1,11 @@
-using Mentor.Web.Exceptions;
-using Mentor.Web.Models;
-using Mentor.Web.Services.Interfaces;
+using Resellio.Web.Exceptions;
+using Resellio.Web.Models;
+using Resellio.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Mentor.Web.Controllers
+namespace Resellio.Web.Controllers
 {
     public class HomeController : Controller
     {

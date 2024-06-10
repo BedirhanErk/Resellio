@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Mentor.Web.Models
+namespace Resellio.Web.Models
 {
     public class SignInInput
     {

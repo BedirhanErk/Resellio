@@ -1,9 +1,9 @@
-﻿using Mentor.Services.PhotoStock.Dtos;
-using Mentor.Shared.ControllerBases;
-using Mentor.Shared.Dtos;
+﻿using Resellio.Services.PhotoStock.Dtos;
+using Resellio.Shared.ControllerBases;
+using Resellio.Shared.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Services.PhotoStock.Controllers
+namespace Resellio.Services.PhotoStock.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

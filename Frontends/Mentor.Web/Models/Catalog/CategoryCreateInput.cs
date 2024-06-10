@@ -1,4 +1,4 @@
-﻿namespace Mentor.Web.Models.Catalog
+﻿namespace Resellio.Web.Models.Catalog
 {
     public class CategoryCreateInput
     {

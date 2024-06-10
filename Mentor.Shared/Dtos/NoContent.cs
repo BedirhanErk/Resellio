@@ -1,4 +1,4 @@
-﻿namespace Mentor.Shared.Dtos
+﻿namespace Resellio.Shared.Dtos
 {
     public class NoContent
     {

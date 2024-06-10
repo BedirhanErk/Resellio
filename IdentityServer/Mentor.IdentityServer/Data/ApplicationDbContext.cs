@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Mentor.IdentityServer.Models;
+using Resellio.IdentityServer.Models;
 
-namespace Mentor.IdentityServer.Data
+namespace Resellio.IdentityServer.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -1,6 +1,6 @@
-﻿using Mentor.Web.Models.Basket;
+﻿using Resellio.Web.Models.Basket;
 
-namespace Mentor.Web.Services.Interfaces
+namespace Resellio.Web.Services.Interfaces
 {
     public interface IBasketService
     {

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Mentor.Web.Models.Catalog;
+using Resellio.Web.Models.Catalog;
 
-namespace Mentor.Web.Validators
+namespace Resellio.Web.Validators
 {
     public class CourseUpdateInputValidator : AbstractValidator<CourseUpdateInput>
     {

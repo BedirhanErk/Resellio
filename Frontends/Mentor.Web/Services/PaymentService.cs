@@ -1,7 +1,7 @@
-﻿using Mentor.Web.Models.Payment;
-using Mentor.Web.Services.Interfaces;
+﻿using Resellio.Web.Models.Payment;
+using Resellio.Web.Services.Interfaces;
 
-namespace Mentor.Web.Services
+namespace Resellio.Web.Services
 {
     public class PaymentService : IPaymentService
     {

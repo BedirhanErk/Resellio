@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mentor.IdentityServer.Services
+namespace Resellio.IdentityServer.Services
 {
     public class TokenExchangeExtensionGrantValidator : IExtensionGrantValidator
     {

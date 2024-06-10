@@ -1,10 +1,10 @@
 using FluentValidation.AspNetCore;
-using Mentor.Shared.Services;
-using Mentor.Web.Extensions;
-using Mentor.Web.Handler;
-using Mentor.Web.Helpers;
-using Mentor.Web.Models;
-using Mentor.Web.Validators;
+using Resellio.Shared.Services;
+using Resellio.Web.Extensions;
+using Resellio.Web.Handler;
+using Resellio.Web.Helpers;
+using Resellio.Web.Models;
+using Resellio.Web.Validators;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +27,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opt.LoginPath = "/Auth/SignIn";
     opt.ExpireTimeSpan = TimeSpan.FromDays(60);
     opt.SlidingExpiration = true;
-    opt.Cookie.Name = "mentorcookie";
+    opt.Cookie.Name = "Reselliocookie";
 });
 
 builder.Services.AddHttpContextAccessor();

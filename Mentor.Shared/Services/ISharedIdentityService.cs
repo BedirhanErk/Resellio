@@ -1,4 +1,4 @@
-﻿namespace Mentor.Shared.Services
+﻿namespace Resellio.Shared.Services
 {
     public interface ISharedIdentityService
     {

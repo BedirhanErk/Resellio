@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mentor.Shared.Messages
+namespace Resellio.Shared.Messages
 {
     public class CreateOrderMessageCommand
     {

@@ -1,4 +1,4 @@
-﻿namespace Mentor.Shared.Messages
+﻿namespace Resellio.Shared.Messages
 {
     public class CourseNameChangedEvent
     {

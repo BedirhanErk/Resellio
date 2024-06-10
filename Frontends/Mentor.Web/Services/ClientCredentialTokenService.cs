@@ -1,10 +1,10 @@
 ﻿using IdentityModel.AspNetCore.AccessTokenManagement;
 using IdentityModel.Client;
-using Mentor.Web.Models;
-using Mentor.Web.Services.Interfaces;
+using Resellio.Web.Models;
+using Resellio.Web.Services.Interfaces;
 using Microsoft.Extensions.Options;
 
-namespace Mentor.Web.Services
+namespace Resellio.Web.Services
 {
     public class ClientCredentialTokenService : IClientCredentialTokenService
     {

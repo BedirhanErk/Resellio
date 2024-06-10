@@ -1,9 +1,9 @@
 ﻿using MassTransit;
-using Mentor.Services.Order.Infrastructure;
-using Mentor.Shared.Messages;
+using Resellio.Services.Order.Infrastructure;
+using Resellio.Shared.Messages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Mentor.Services.Order.Application.Consumers
+namespace Resellio.Services.Order.Application.Consumers
 {
     public class CourseNameChangedEventConsumer : IConsumer<CourseNameChangedEvent>
     {

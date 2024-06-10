@@ -1,6 +1,6 @@
 ﻿using StackExchange.Redis;
 
-namespace Mentor.Services.Basket.Services
+namespace Resellio.Services.Basket.Services
 {
     public class RedisService
     {

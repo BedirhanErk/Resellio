@@ -1,9 +1,9 @@
-﻿using Mentor.Services.Discount.Services;
-using Mentor.Shared.ControllerBases;
-using Mentor.Shared.Services;
+﻿using Resellio.Services.Discount.Services;
+using Resellio.Shared.ControllerBases;
+using Resellio.Shared.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mentor.Services.Discount.Controllers
+namespace Resellio.Services.Discount.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

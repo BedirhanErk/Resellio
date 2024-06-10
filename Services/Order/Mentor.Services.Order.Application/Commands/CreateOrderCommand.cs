@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using Mentor.Services.Order.Application.Dtos;
-using Mentor.Shared.Dtos;
+using Resellio.Services.Order.Application.Dtos;
+using Resellio.Shared.Dtos;
 
-namespace Mentor.Services.Order.Application.Commands
+namespace Resellio.Services.Order.Application.Commands
 {
     public class CreateOrderCommand : IRequest<Response<CreatedOrderDto>>
     {

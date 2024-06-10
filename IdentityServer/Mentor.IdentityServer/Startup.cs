@@ -1,7 +1,7 @@
 ﻿using IdentityServer4;
-using Mentor.IdentityServer.Data;
-using Mentor.IdentityServer.Models;
-using Mentor.IdentityServer.Services;
+using Resellio.IdentityServer.Data;
+using Resellio.IdentityServer.Models;
+using Resellio.IdentityServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Mentor.IdentityServer
+namespace Resellio.IdentityServer
 {
     public class Startup
     {

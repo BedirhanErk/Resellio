@@ -1,7 +1,7 @@
-﻿using Mentor.Services.Basket.Dtos;
-using Mentor.Shared.Dtos;
+﻿using Resellio.Services.Basket.Dtos;
+using Resellio.Shared.Dtos;
 
-namespace Mentor.Services.Basket.Services
+namespace Resellio.Services.Basket.Services
 {
     public interface IBasketService
     {

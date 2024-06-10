@@ -1,4 +1,4 @@
-﻿namespace Mentor.Services.Basket.Settings
+﻿namespace Resellio.Services.Basket.Settings
 {
     public class RedisSettings
     {

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using Mentor.Services.Order.Application.Dtos;
-using Mentor.Shared.Dtos;
+using Resellio.Services.Order.Application.Dtos;
+using Resellio.Shared.Dtos;
 
-namespace Mentor.Services.Order.Application.Queries
+namespace Resellio.Services.Order.Application.Queries
 {
     public class GetOrdersByUserIdQuery : IRequest<Response<List<OrderDto>>>
     {
