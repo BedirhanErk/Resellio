@@ -39,7 +39,7 @@ input:focus {
 
 /* line 24, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 .section_padding {
-  padding: 140px 0px;
+  padding: 140px 0px 30px 0px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -7495,7 +7495,7 @@ h6 {
 /**********************footer part css*******************/
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_footer.scss */
 .footer_part {
-  padding: 130px 0px 25px;
+  padding: 0px 0px 25px;
 }
 
 @media (max-width: 576px) {
