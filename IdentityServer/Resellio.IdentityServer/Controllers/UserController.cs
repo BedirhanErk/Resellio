@@ -28,9 +28,10 @@ namespace Resellio.IdentityServer.Controllers
         {
             var user = new ApplicationUser
             {
-                UserName = signupDto.UserName,
-                Email = signupDto.Email,
-                City = signupDto.City               
+                Name = signupDto.Name,
+                Surname = signupDto.Surname,
+                UserName = signupDto.Name.ToLower() + signupDto.Surname.ToLower(),
+                Email = signupDto.Email            
             };
 
             var result = await _userManager.CreateAsync(user, signupDto.Password);
@@ -54,7 +55,7 @@ namespace Resellio.IdentityServer.Controllers
             if (user == null)
                 return BadRequest();
 
-            return Ok(new {Id = user.Id, UserName = user.UserName, Email = user.Email, City = user.City });
+            return Ok(new { Id = user.Id, Name = user.Name, Surname = user.Surname, Email = user.Email });
         }
     }
 }

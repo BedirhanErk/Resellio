@@ -38,13 +38,6 @@ namespace Resellio.IdentityServer
                     var applicationDbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
 
                     applicationDbContext.Database.Migrate();
-
-                    var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-                    if (!userManager.Users.Any()) 
-                    {
-                        userManager.CreateAsync(new ApplicationUser { UserName = "bedirhanerk", Email = "erkilicbedirhan@gmail.com", City = "Yozgat" }, "Password12*").Wait();
-                    }
                 }
 
                 Log.Information("Starting host...");
