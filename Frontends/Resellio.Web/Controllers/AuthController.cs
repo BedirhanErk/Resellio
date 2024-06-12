@@ -15,18 +15,18 @@ namespace Resellio.Web.Controllers
             _identityService = identityService;
         }
 
-        public IActionResult SignIn()
+        public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignIn(SignInInput signInInput)
+        public async Task<IActionResult> Login(LoginInput loginInput)
         {
             if (!ModelState.IsValid)
                 return View();
 
-            var response = await _identityService.SignIn(signInInput);
+            var response = await _identityService.Login(loginInput);
 
             if (!response.IsSuccessful)
             {

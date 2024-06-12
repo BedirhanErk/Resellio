@@ -6,7 +6,7 @@ namespace Resellio.Web.Services.Interfaces
 {
     public interface IIdentityService
     {
-        Task<Response<bool>> SignIn(SignInInput signInInput);
+        Task<Response<bool>> Login(LoginInput loginInput);
         Task<TokenResponse> GetAccessTokenByRefreshToken();
         Task RevokeRefreshToken();
     }

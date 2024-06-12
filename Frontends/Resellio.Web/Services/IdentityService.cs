@@ -27,7 +27,7 @@ namespace Resellio.Web.Services
             _serviceApiSettings = serviceApiSettings.Value;
         }
 
-        public async Task<Response<bool>> SignIn(SignInInput signInInput)
+        public async Task<Response<bool>> Login(LoginInput loginInput)
         {
             var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
@@ -41,8 +41,8 @@ namespace Resellio.Web.Services
             var passwordTokenRequest = new PasswordTokenRequest();
             passwordTokenRequest.ClientId = _clientSettings.WebClientForUser.ClientId;
             passwordTokenRequest.ClientSecret = _clientSettings.WebClientForUser.ClientSecret;
-            passwordTokenRequest.UserName = signInInput.Email;
-            passwordTokenRequest.Password = signInInput.Password;
+            passwordTokenRequest.UserName = loginInput.Email;
+            passwordTokenRequest.Password = loginInput.Password;
             passwordTokenRequest.Address = disco.TokenEndpoint;
 
             var token = await _httpClient.RequestPasswordTokenAsync(passwordTokenRequest);
@@ -77,7 +77,7 @@ namespace Resellio.Web.Services
                 new AuthenticationToken { Name = OpenIdConnectParameterNames.ExpiresIn, Value = DateTime.Now.AddSeconds(token.ExpiresIn).ToString("o", CultureInfo.InvariantCulture) }
             });
 
-            authenticationProperties.IsPersistent = signInInput.IsRemember;
+            authenticationProperties.IsPersistent = loginInput.IsRemember;
 
             await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal, authenticationProperties);
 

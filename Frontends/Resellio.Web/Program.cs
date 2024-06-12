@@ -24,7 +24,7 @@ builder.Services.AddHttpClientServices(builder);
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
 {
-    opt.LoginPath = "/Auth/SignIn";
+    opt.LoginPath = "/Auth/Login";
     opt.ExpireTimeSpan = TimeSpan.FromDays(60);
     opt.SlidingExpiration = true;
     opt.Cookie.Name = "Reselliocookie";
