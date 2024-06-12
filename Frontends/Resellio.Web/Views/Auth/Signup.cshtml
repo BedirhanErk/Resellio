@@ -1,33 +1,30 @@
 ﻿
 @{
-    ViewData["Title"] = "Log In";
+    ViewData["Title"] = "Sign Up";
 }
-@model LoginInput
+@model SignupInput
 
 <section class="login_part" style="padding-top:50px">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 col-md-6">
-                <div class="login_part_text text-center">
-                    <div class="login_part_text_iner">
-                        <h2>New to our Shop?</h2>
-                        <p>
-                            Create an account to access affordable second-hand items and save money.
-                        </p>
-                        <a asp-controller="Auth" asp-action="SignUp" class="btn_3">Create an Account</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-6 col-md-6 offset-3">
                 <div class="login_part_form">
                     <div class="login_part_form_iner">
                         <h3>
-                            Welcome Back ! 
-                            <br />
-                            Please Log in now
+                            Sign up and 
+                            <br /> 
+                            discover great deals
                         </h3>
-                        <form class="row contact_form" asp-controller="Auth" asp-action="Login" method="post">
+                        <form class="row contact_form" asp-controller="Auth" asp-action="Signup" method="post">
                             <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Name" placeholder="Name">
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" asp-for="Surname" placeholder="Surname">
+                                <span class="text-danger" asp-validation-for="Surname"></span>
+                            </div>
                             <div class="col-md-12 form-group p_star">
                                 <input type="email" class="form-control" asp-for="Email" placeholder="Email">
                                 <span class="text-danger" asp-validation-for="Email"></span>
@@ -37,12 +34,8 @@
                                 <span class="text-danger" asp-validation-for="Password"></span>
                             </div>
                             <div class="col-md-12 form-group">
-                                <div class="creat_account d-flex align-items-center">
-                                    <input type="checkbox" asp-for="IsRemember">
-                                    <label asp-for="IsRemember">Remember me</label>
-                                </div>
                                 <button type="submit" value="submit" class="btn_3">
-                                    Log In
+                                    Sign Up
                                 </button>
                             </div>
                         </form>

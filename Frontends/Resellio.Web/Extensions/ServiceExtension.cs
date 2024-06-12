@@ -21,7 +21,12 @@ namespace Resellio.Web.Extensions
                 opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayUri}/{serviceApiSettings.PhotoStock.Path}");
             }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
-            builder.Services.AddHttpClient<IUserService, UserService>(opt =>
+            builder.Services.AddHttpClient("SignupClient", opt =>
+            {
+                opt.BaseAddress = new Uri(serviceApiSettings.IdentityUri);
+            }).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+            builder.Services.AddHttpClient("UserClient", opt =>
             {
                 opt.BaseAddress = new Uri(serviceApiSettings.IdentityUri);
             }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
@@ -48,6 +53,8 @@ namespace Resellio.Web.Extensions
 
             builder.Services.AddHttpClient<IIdentityService, IdentityService>();
             builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
+
+            builder.Services.AddScoped<IUserService, UserService>();
         }
     }
 }

@@ -9,10 +9,12 @@ namespace Resellio.Web.Controllers
     public class AuthController : Controller
     {
         private readonly IIdentityService _identityService;
+        private readonly IUserService _userService;
 
-        public AuthController(IIdentityService identityService)
+        public AuthController(IIdentityService identityService, IUserService userService)
         {
             _identityService = identityService;
+            _userService = userService;
         }
 
         public IActionResult Login()
@@ -48,6 +50,25 @@ namespace Resellio.Web.Controllers
             await _identityService.RevokeRefreshToken();
 
             return RedirectToAction(nameof(Index), "Home");
+        }
+
+        public IActionResult Signup()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Signup(SignupInput signupInput)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var response = await _userService.Signup(signupInput);
+
+            if (response != true)
+                return View();
+
+            return RedirectToAction(nameof(Login));
         }
     }
 }
