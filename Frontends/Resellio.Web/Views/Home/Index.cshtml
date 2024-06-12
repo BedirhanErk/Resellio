@@ -1,34 +1,33 @@
-﻿
+﻿@model List<CourseViewModel>
 @{
     ViewData["Title"] = "Homepage";
-    var counter = 0;
 }
-@model List<CourseViewModel>
 
-<h2>Courses</h2>
-<hr />
-@if (Model.Any())
-{
-    @foreach (var item in Model)
-    {
-        counter++;
-        @if (counter == 1 || counter % 3 == 1)
-            @Html.Raw("<div class='row row-cols-1 row-cols-md-3 g-4 mb-3'>")
-
-        <div class="col">
-            <div class="card">
-                <img src="@item.PictureUrl" class="card-img-top" alt="@item.Name">
-                <div class="card-body">
-                    <h5 class="card-title">@item.Name</h5>
-                    <span class="badge text-bg-primary">Category: @item.Category.Name</span>
-                    <p class="card-text">@item.ShortDescription</p>
-                    <h4>@item.Price</h4>
-                    <a class="btn btn-info" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+<section class="cat_product_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row align-items-center latest_product_inner">
+                    @if (Model.Any())
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <div class='col-lg-3 col-sm-6'>
+                                <div class="single_product_item">
+                                    <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">
+                                        <img src="@item.PictureUrl" alt="@item.Name">
+                                    </a>
+                                    <div class="single_product_text">
+                                        <h4>@item.Name</h4>
+                                        <h3>@item.Category.Name <span style="float:right">@item.Price ₺</span></h3>
+                                        <a asp-controller="Basket" asp-action="AddBasketItem" asp-route-id="@item.Id" class="add_cart">+ Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
         </div>
-
-        @if (counter % 3 == 0)
-            @Html.Raw("</div>")
-    }
-}
+    </div>
+</section>
