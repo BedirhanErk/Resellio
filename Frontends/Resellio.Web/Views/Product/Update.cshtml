@@ -1,4 +1,4 @@
-﻿@model CourseUpdateInput
+﻿@model ProductUpdateInput
 @{
     ViewData["Title"] = "Update";
 }
@@ -7,8 +7,8 @@
     <div class="col-md-8 offset-2">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Update Course</h5>
-                <form asp-controller="Course" asp-action="Update" method="post" enctype="multipart/form-data">
+                <h5 class="card-title">Update Product</h5>
+                <form asp-controller="Product" asp-action="Update" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly"></div>
                     <input type="hidden" asp-for="Id"/>
                     <input type="hidden" asp-for="Picture"/>

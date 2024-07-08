@@ -56,8 +56,8 @@ namespace Resellio.Web.Services
             foreach (var item in basket.BasketItems)
             {
                 var orderItem = new CreateOrderItemInput();
-                orderItem.CourseId = item.CourseId;
-                orderItem.CourseName = item.CourseName;
+                orderItem.CourseId = item.ProductId;
+                orderItem.CourseName = item.ProductName;
                 orderItem.Price = item.CurrentPrice;
                 orderItem.PictureUrl = "";
                 createOrderInput.OrderItems.Add(orderItem);
@@ -94,8 +94,8 @@ namespace Resellio.Web.Services
             foreach (var item in basket.BasketItems)
             {
                 var orderItem = new CreateOrderItemInput();
-                orderItem.CourseId = item.CourseId;
-                orderItem.CourseName = item.CourseName;
+                orderItem.CourseId = item.ProductId;
+                orderItem.CourseName = item.ProductName;
                 orderItem.Price = item.CurrentPrice;
                 orderItem.PictureUrl = "";
                 createOrderInput.OrderItems.Add(orderItem);

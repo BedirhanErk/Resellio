@@ -1,9 +1,7 @@
 ﻿namespace Resellio.Services.Catalog.Dtos
 {
-    public class CourseUpdateDto
+    public class ProductCreateDto
     {
-        public string Id { get; set; }
-
         public string? UserId { get; set; }
 
         public string CategoryId { get; set; }

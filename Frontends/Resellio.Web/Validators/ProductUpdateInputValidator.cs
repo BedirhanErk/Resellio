@@ -3,9 +3,9 @@ using Resellio.Web.Models.Catalog;
 
 namespace Resellio.Web.Validators
 {
-    public class CourseCreateInputValidator : AbstractValidator<CourseCreateInput>
+    public class ProductUpdateInputValidator : AbstractValidator<ProductUpdateInput>
     {
-        public CourseCreateInputValidator()
+        public ProductUpdateInputValidator()
         {
             RuleFor(x => x.CategoryId).NotEmpty().WithMessage("Category is required.");
             RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required.");

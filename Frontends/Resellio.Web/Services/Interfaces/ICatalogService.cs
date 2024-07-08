@@ -4,14 +4,14 @@ namespace Resellio.Web.Services.Interfaces
 {
     public interface ICatalogService
     {
-        Task<List<CourseViewModel>> GetAllCourses();
+        Task<List<ProductViewModel>> GetAllProducts();
         Task<List<CategoryViewModel>> GetAllCategories();
-        Task<CourseViewModel> GetCourseById(string id);
+        Task<ProductViewModel> GetProductById(string id);
         Task<CategoryViewModel> GetCategoryById(string id);
-        Task<List<CourseViewModel>> GetAllCoursesByUserId(string userId);
-        Task<CourseViewModel> CreateCourse(CourseCreateInput courseCreateInput);
+        Task<List<ProductViewModel>> GetAllProductsByUserId(string userId);
+        Task<ProductViewModel> CreateProduct(ProductCreateInput productCreateInput);
         Task<CategoryViewModel> CreateCategory(CategoryCreateInput categoryCreateInput);
-        Task<bool> UpdateCourse(CourseUpdateInput courseUpdateInput);
-        Task<bool> DeleteCourse(string id);
+        Task<bool> UpdateProduct(ProductUpdateInput productUpdateInput);
+        Task<bool> DeleteProduct(string id);
     }
 }

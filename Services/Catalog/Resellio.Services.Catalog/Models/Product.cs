@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Resellio.Services.Catalog.Models
 {
-    public class Course
+    public class Product
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

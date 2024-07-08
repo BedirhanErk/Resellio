@@ -18,14 +18,14 @@ namespace Resellio.Web.Services
             _photoHelper = photoHelper;
         }
 
-        public async Task<List<CourseViewModel>> GetAllCourses()
+        public async Task<List<ProductViewModel>> GetAllProducts()
         {
-            var response = await _httpClient.GetAsync("course");
+            var response = await _httpClient.GetAsync("product");
 
             if (!response.IsSuccessStatusCode)
                 return null;
 
-            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CourseViewModel>>>();
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<ProductViewModel>>>();
 
             foreach (var item in responseSuccess.Data)
             {
@@ -47,14 +47,14 @@ namespace Resellio.Web.Services
             return responseSuccess.Data;
         }
 
-        public async Task<CourseViewModel> GetCourseById(string id)
+        public async Task<ProductViewModel> GetProductById(string id)
         {
-            var response = await _httpClient.GetAsync($"course/{id}");
+            var response = await _httpClient.GetAsync($"product/{id}");
 
             if (!response.IsSuccessStatusCode)
                 return null;
 
-            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<CourseViewModel>>();
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<ProductViewModel>>();
 
             responseSuccess.Data.PictureUrl = _photoHelper.GetPhotoUrl(responseSuccess.Data.Picture);
 
@@ -73,14 +73,14 @@ namespace Resellio.Web.Services
             return responseSuccess.Data;
         }
 
-        public async Task<List<CourseViewModel>> GetAllCoursesByUserId(string userId)
+        public async Task<List<ProductViewModel>> GetAllProductsByUserId(string userId)
         {
-            var response = await _httpClient.GetAsync($"course/GetAllByUserId/{userId}");
+            var response = await _httpClient.GetAsync($"product/GetAllByUserId/{userId}");
 
             if (!response.IsSuccessStatusCode)
                 return null;
 
-            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CourseViewModel>>>();
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<ProductViewModel>>>();
 
             foreach (var item in responseSuccess.Data)
             {
@@ -90,19 +90,19 @@ namespace Resellio.Web.Services
             return responseSuccess.Data;
         }
 
-        public async Task<CourseViewModel> CreateCourse(CourseCreateInput courseCreateInput)
+        public async Task<ProductViewModel> CreateProduct(ProductCreateInput productCreateInput)
         {
-            var resultPhoto = await _photoStockService.UploadPhoto(courseCreateInput.PhotoFormFile);
+            var resultPhoto = await _photoStockService.UploadPhoto(productCreateInput.PhotoFormFile);
 
             if (resultPhoto != null)
-                courseCreateInput.Picture = resultPhoto.Url;
+                productCreateInput.Picture = resultPhoto.Url;
 
-            var response = await _httpClient.PostAsJsonAsync("course", courseCreateInput);
+            var response = await _httpClient.PostAsJsonAsync("product", productCreateInput);
 
             if (!response.IsSuccessStatusCode)
                 return null;
 
-            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<CourseViewModel>>();
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<ProductViewModel>>();
 
             return responseSuccess.Data;
         }
@@ -119,33 +119,33 @@ namespace Resellio.Web.Services
             return responseSuccess.Data;
         }
 
-        public async Task<bool> UpdateCourse(CourseUpdateInput courseUpdateInput)
+        public async Task<bool> UpdateProduct(ProductUpdateInput productUpdateInput)
         {
-            var resultPhoto = await _photoStockService.UploadPhoto(courseUpdateInput.PhotoFormFile);
+            var resultPhoto = await _photoStockService.UploadPhoto(productUpdateInput.PhotoFormFile);
 
             if (resultPhoto != null)
             {
-                await _photoStockService.DeletePhoto(courseUpdateInput.Picture);
-                courseUpdateInput.Picture = resultPhoto.Url;
+                await _photoStockService.DeletePhoto(productUpdateInput.Picture);
+                productUpdateInput.Picture = resultPhoto.Url;
             }
 
-            var response = await _httpClient.PutAsJsonAsync("course", courseUpdateInput);
+            var response = await _httpClient.PutAsJsonAsync("product", productUpdateInput);
 
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeleteCourse(string id)
+        public async Task<bool> DeleteProduct(string id)
         {
-            var course = await _httpClient.GetAsync($"course/{id}");
+            var product = await _httpClient.GetAsync($"product/{id}");
 
-            if (!course.IsSuccessStatusCode)
+            if (!product.IsSuccessStatusCode)
                 return false;
 
-            var responseSuccess = await course.Content.ReadFromJsonAsync<Response<CourseViewModel>>();  
+            var responseSuccess = await product.Content.ReadFromJsonAsync<Response<ProductViewModel>>();  
 
             await _photoStockService.DeletePhoto(responseSuccess.Data.Picture);
 
-            var response = await _httpClient.DeleteAsync($"course/{responseSuccess.Data.Id}");
+            var response = await _httpClient.DeleteAsync($"product/{responseSuccess.Data.Id}");
 
             return response.IsSuccessStatusCode;
         }

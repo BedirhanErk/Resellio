@@ -34,7 +34,7 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAccessTokenManagement();
 
-builder.Services.AddControllersWithViews().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CourseCreateInputValidator>());
+builder.Services.AddControllersWithViews().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductCreateInputValidator>());
 
 var app = builder.Build();
 

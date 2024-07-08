@@ -7,19 +7,19 @@ namespace Resellio.Services.Catalog.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CourseController : CustomBaseController
+    public class ProductController : CustomBaseController
     {
-        private readonly ICourseService _courseService;
+        private readonly IProductService _productService;
 
-        public CourseController(ICourseService courseService)
+        public ProductController(IProductService productService)
         {
-            _courseService = courseService;
+            _productService = productService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var response = await _courseService.GetAllAsync();
+            var response = await _productService.GetAllAsync();
 
             return CreateActionResultInstance(response);
         }
@@ -27,7 +27,7 @@ namespace Resellio.Services.Catalog.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
-            var response = await _courseService.GetByIdAsync(id);
+            var response = await _productService.GetByIdAsync(id);
 
             return CreateActionResultInstance(response);
         }
@@ -35,23 +35,23 @@ namespace Resellio.Services.Catalog.Controllers
         [HttpGet("GetAllByUserId/{userId}")]
         public async Task<IActionResult> GetAllByUserId(string userId)
         {
-            var response = await _courseService.GetAllByUserIdAsync(userId);
+            var response = await _productService.GetAllByUserIdAsync(userId);
 
             return CreateActionResultInstance(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CourseCreateDto courseCreateDto)
+        public async Task<IActionResult> Create(ProductCreateDto productCreateDto)
         {
-            var response = await _courseService.CreateAsync(courseCreateDto);
+            var response = await _productService.CreateAsync(productCreateDto);
 
             return CreateActionResultInstance(response);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(CourseUpdateDto courseUpdateDto)
+        public async Task<IActionResult> Update(ProductUpdateDto productUpdateDto)
         {
-            var response = await _courseService.UpdateAsync(courseUpdateDto);
+            var response = await _productService.UpdateAsync(productUpdateDto);
 
             return CreateActionResultInstance(response);
         }
@@ -59,7 +59,7 @@ namespace Resellio.Services.Catalog.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var response = await _courseService.DeleteAsync(id);
+            var response = await _productService.DeleteAsync(id);
 
             return CreateActionResultInstance(response);
         }

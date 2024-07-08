@@ -35,21 +35,21 @@
                             @foreach (var item in Model.BasketItems)
                             {
                                 <tr>
-                                    <td>
-                                        <div class="media">
-                                            <div class="d-flex">
-                                                <img src="" alt="@item.CourseName" />
+                                    <td width="50%">
+                                        <div class="media d-flex">
+                                            <div class="d-flex img-width">
+                                                <img src="@item.ProductPicture" alt="@item.ProductName" class="img-thumbnail"  />
                                             </div>
                                             <div class="media-body">
-                                                <p>@item.CourseName</p>
+                                                <p>@item.ProductName</p>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <h5>@item.CurrentPrice ₺</h5>
                                     </td>
-                                    <td class="text-center fs-6">
-                                        <a class="text-danger" asp-controller="Basket" asp-action="RemoveBasketItem" asp-route-id="@item.CourseId"><i class="fa fa-trash"></i></a>
+                                    <td class="text-center fs-5">
+                                        <a class="text-danger" asp-controller="Basket" asp-action="RemoveBasketItem" asp-route-id="@item.ProductId"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             }
@@ -123,6 +123,10 @@ else
 <style>
     .breadcrumb-height {
         height: auto!important;
+    }
+
+    .img-width {
+        width: 25%;
     }
 
     .f-right {

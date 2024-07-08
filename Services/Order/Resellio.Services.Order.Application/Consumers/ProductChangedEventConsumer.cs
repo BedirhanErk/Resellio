@@ -5,21 +5,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Resellio.Services.Order.Application.Consumers
 {
-    public class CourseNameChangedEventConsumer : IConsumer<CourseNameChangedEvent>
+    public class ProductChangedEventConsumer : IConsumer<ProductChangedEvent>
     {
         private readonly OrderDbContext _orderDbContext;
 
-        public CourseNameChangedEventConsumer(OrderDbContext orderDbContext)
+        public ProductChangedEventConsumer(OrderDbContext orderDbContext)
         {
             _orderDbContext = orderDbContext;
         }
 
-        public async Task Consume(ConsumeContext<CourseNameChangedEvent> context)
+        public async Task Consume(ConsumeContext<ProductChangedEvent> context)
         {
-            var orderItems = await _orderDbContext.OrderItems.Where(x => x.CourseId == context.Message.CourseId).ToListAsync();
+            var orderItems = await _orderDbContext.OrderItems.Where(x => x.CourseId == context.Message.ProductId).ToListAsync();
 
             orderItems.ForEach(x => {
-                x.UpdateOrderItem(context.Message.UpdatedName, x.Price, x.PictureUrl);
+                x.UpdateOrderItem(context.Message.ProductName, x.Price, x.PictureUrl);
             });
 
             await _orderDbContext.SaveChangesAsync();

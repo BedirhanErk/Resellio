@@ -1,4 +1,4 @@
-﻿@model List<CourseViewModel>
+﻿@model List<ProductViewModel>
 @{
     ViewData["Title"] = "Index";
 }
@@ -7,8 +7,8 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">My Courses</h5>
-                <a class="btn btn-primary mb-3" asp-controller="Course" asp-action="Create">Create</a>
+                <h5 class="card-title">My Products</h5>
+                <a class="btn btn-primary mb-3" asp-controller="Product" asp-action="Create">Create</a>
                 @if (Model.Any())
                 {
                     <table class="table table-striped table-bordered">
@@ -32,8 +32,8 @@
                                     <td>@item.Price</td>
                                     <td>@item.Feature.Duration</td>
                                     <td>
-                                        <a class="btn btn-success" asp-controller="Course" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                                        <a class="btn btn-danger" asp-controller="Course" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        <a class="btn btn-success" asp-controller="Product" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                        <a class="btn btn-danger" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                                     </td>
                                 </tr>
                             }
@@ -42,7 +42,7 @@
                 }
                 else
                 {
-                    <div class="alert alert-info">No courses found.</div>
+                    <div class="alert alert-info">No products found.</div>
                 }
             </div>
         </div>

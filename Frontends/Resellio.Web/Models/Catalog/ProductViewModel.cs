@@ -1,6 +1,6 @@
-﻿namespace Resellio.Services.Catalog.Dtos
+﻿namespace Resellio.Web.Models.Catalog
 {
-    public class CourseDto
+    public class ProductViewModel
     {
         public string Id { get; set; }
 
@@ -14,12 +14,16 @@
 
         public string Picture { get; set; }
 
+        public string PictureUrl { get; set; }
+
         public string Description { get; set; }
+
+        public string ShortDescription { get => Description.Length > 100 ? Description.Substring(0, 100) + "..." : Description; }
 
         public DateTime CreatedDate { get; set; }
 
-        public FeatureDto Feature { get; set; }
+        public FeatureViewModel Feature { get; set; }
 
-        public CategoryDto Category { get; set; }
+        public CategoryViewModel Category { get; set; }
     }
 }

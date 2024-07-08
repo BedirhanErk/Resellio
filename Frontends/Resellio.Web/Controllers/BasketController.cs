@@ -27,13 +27,14 @@ namespace Resellio.Web.Controllers
 
         public async Task<IActionResult> AddBasketItem(string id)
         {
-            var course = await _catalogService.GetCourseById(id);
+            var product = await _catalogService.GetProductById(id);
 
             var basketItem = new BasketItemViewModel();
             basketItem.Quantity = 1;
-            basketItem.CourseId = course.Id;
-            basketItem.CourseName = course.Name;
-            basketItem.Price = course.Price;
+            basketItem.ProductId = product.Id;
+            basketItem.ProductName = product.Name;
+            basketItem.ProductPicture = product.Picture;
+            basketItem.Price = product.Price;
 
             await _basketService.AddBasketItem(basketItem);
 

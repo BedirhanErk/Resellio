@@ -18,16 +18,16 @@ namespace Resellio.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var courses = await _catalogService.GetAllCourses();
+            var products = await _catalogService.GetAllProducts();
 
-            return View(courses);
+            return View(products);
         }
 
         public async Task<IActionResult> Detail(string id)
         {
-            var course = await _catalogService.GetCourseById(id);
+            var product = await _catalogService.GetProductById(id);
 
-            return View(course);
+            return View(product);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

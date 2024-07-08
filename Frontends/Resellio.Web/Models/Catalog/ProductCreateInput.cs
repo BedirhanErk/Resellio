@@ -2,7 +2,7 @@
 
 namespace Resellio.Web.Models.Catalog
 {
-    public class CourseCreateInput
+    public class ProductCreateInput
     {
         public string? UserId { get; set; }
 

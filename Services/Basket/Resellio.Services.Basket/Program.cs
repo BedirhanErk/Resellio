@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMassTransit(x => {
 
-    x.AddConsumer<CourseNameChangedEventConsumer>();
+    x.AddConsumer<ProductChangedEventConsumer>();
 
     x.UsingRabbitMq((context, cfg) =>
     {
@@ -25,9 +25,9 @@ builder.Services.AddMassTransit(x => {
             host.Password("guest");
         });
 
-        cfg.ReceiveEndpoint("course-name-changed-event-basket", e =>
+        cfg.ReceiveEndpoint("product-changed-event-basket", e =>
         {
-            e.ConfigureConsumer<CourseNameChangedEventConsumer>(context);
+            e.ConfigureConsumer<ProductChangedEventConsumer>(context);
         });
     });
 });

@@ -1,4 +1,5 @@
 ﻿using Resellio.Shared.Dtos;
+using Resellio.Web.Helpers;
 using Resellio.Web.Models.Basket;
 using Resellio.Web.Services.Interfaces;
 
@@ -8,11 +9,13 @@ namespace Resellio.Web.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IDiscountService _discountService;
+        private readonly PhotoHelper _photoHelper;
 
-        public BasketService(HttpClient httpClient, IDiscountService discountService)
+        public BasketService(HttpClient httpClient, IDiscountService discountService, PhotoHelper photoHelper)
         {
             _httpClient = httpClient;
             _discountService = discountService;
+            _photoHelper = photoHelper;
         }
 
         public async Task<BasketViewModel> GetBasket()
@@ -23,6 +26,11 @@ namespace Resellio.Web.Services
                 return null;
 
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<BasketViewModel>>();
+
+            foreach (var item in responseSuccess.Data.BasketItems)
+            {
+                item.ProductPicture = _photoHelper.GetPhotoUrl(item.ProductPicture);
+            }
 
             return responseSuccess.Data;
         }
@@ -47,7 +55,7 @@ namespace Resellio.Web.Services
 
             if (basket != null)
             {
-                if (!basket.BasketItems.Any(x=> x.CourseId == basketItemViewModel.CourseId))
+                if (!basket.BasketItems.Any(x=> x.ProductId == basketItemViewModel.ProductId))
                     basket.BasketItems.Add(basketItemViewModel);
             }
             else
@@ -59,14 +67,14 @@ namespace Resellio.Web.Services
             await SaveOrUpdate(basket);
         }
 
-        public async Task<bool> RemoveBasketItem(string courseId)
+        public async Task<bool> RemoveBasketItem(string productId)
         {
             var basket = await GetBasket();
 
             if (basket == null)
                 return false;
 
-            var basketItem = basket.BasketItems.FirstOrDefault(x => x.CourseId == courseId);
+            var basketItem = basket.BasketItems.FirstOrDefault(x => x.ProductId == productId);
 
             if (basketItem == null)
                 return false;

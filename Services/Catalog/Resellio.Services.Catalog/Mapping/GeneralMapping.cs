@@ -11,9 +11,9 @@ namespace Resellio.Services.Catalog.Mapping
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<Category, CategoryCreateDto>().ReverseMap();
 
-            CreateMap<Course, CourseDto>().ReverseMap();
-            CreateMap<Course, CourseCreateDto>().ReverseMap();
-            CreateMap<Course, CourseUpdateDto>().ReverseMap();
+            CreateMap<Product, ProductDto>().ReverseMap();
+            CreateMap<Product, ProductCreateDto>().ReverseMap();
+            CreateMap<Product, ProductUpdateDto>().ReverseMap();
 
             CreateMap<Feature, FeatureDto>().ReverseMap();
         }

@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Resellio.Web.Controllers
 {
     [Authorize]
-    public class CourseController : Controller
+    public class ProductController : Controller
     {
         private readonly ICatalogService _catalogService;
         private readonly ISharedIdentityService _sharedIdentityService;
 
-        public CourseController(ICatalogService catalogService, ISharedIdentityService sharedIdentityService)
+        public ProductController(ICatalogService catalogService, ISharedIdentityService sharedIdentityService)
         {
             _catalogService = catalogService;
             _sharedIdentityService = sharedIdentityService;
@@ -21,9 +21,9 @@ namespace Resellio.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var courses = await _catalogService.GetAllCoursesByUserId(_sharedIdentityService.UserId);
+            var products = await _catalogService.GetAllProductsByUserId(_sharedIdentityService.UserId);
 
-            return View(courses);
+            return View(products);
         }
 
         public async Task<IActionResult> Create()
@@ -36,7 +36,7 @@ namespace Resellio.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CourseCreateInput courseCreateInput)
+        public async Task<IActionResult> Create(ProductCreateInput productCreateInput)
         {
             var categories = await _catalogService.GetAllCategories();
 
@@ -45,57 +45,57 @@ namespace Resellio.Web.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            courseCreateInput.UserId = _sharedIdentityService.UserId;
+            productCreateInput.UserId = _sharedIdentityService.UserId;
 
-            await _catalogService.CreateCourse(courseCreateInput);
+            await _catalogService.CreateProduct(productCreateInput);
 
             return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Update(string id)
         {
-            var course = await _catalogService.GetCourseById(id);
+            var product = await _catalogService.GetProductById(id);
 
-            if (course == null)
+            if (product == null)
                 return RedirectToAction(nameof(Index));
 
-            var courseUpdateInput = new CourseUpdateInput();
-            courseUpdateInput.Id = course.Id;
-            courseUpdateInput.UserId = course.UserId;
-            courseUpdateInput.CategoryId = course.CategoryId;
-            courseUpdateInput.Name = course.Name;
-            courseUpdateInput.Price = course.Price;
-            courseUpdateInput.Picture = course.Picture;
-            courseUpdateInput.Description = course.Description;
-            courseUpdateInput.Feature = course.Feature;
+            var productUpdateInput = new ProductUpdateInput();
+            productUpdateInput.Id = product.Id;
+            productUpdateInput.UserId = product.UserId;
+            productUpdateInput.CategoryId = product.CategoryId;
+            productUpdateInput.Name = product.Name;
+            productUpdateInput.Price = product.Price;
+            productUpdateInput.Picture = product.Picture;
+            productUpdateInput.Description = product.Description;
+            productUpdateInput.Feature = product.Feature;
 
             var categories = await _catalogService.GetAllCategories();
 
-            ViewBag.categoryList = new SelectList(categories, "Id", "Name", course.CategoryId);
+            ViewBag.categoryList = new SelectList(categories, "Id", "Name", product.CategoryId);
 
-            return View(courseUpdateInput);
+            return View(productUpdateInput);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(CourseUpdateInput courseUpdateInput)
+        public async Task<IActionResult> Update(ProductUpdateInput productUpdateInput)
         {
             var categories = await _catalogService.GetAllCategories();
 
-            ViewBag.categoryList = new SelectList(categories, "Id", "Name", courseUpdateInput.CategoryId);
+            ViewBag.categoryList = new SelectList(categories, "Id", "Name", productUpdateInput.CategoryId);
 
             if (!ModelState.IsValid)
                 return View();
 
-            courseUpdateInput.UserId = _sharedIdentityService.UserId;
+            productUpdateInput.UserId = _sharedIdentityService.UserId;
 
-            await _catalogService.UpdateCourse(courseUpdateInput);
+            await _catalogService.UpdateProduct(productUpdateInput);
 
             return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Delete(string id)
         {
-            await _catalogService.DeleteCourse(id);
+            await _catalogService.DeleteProduct(id);
 
             return RedirectToAction(nameof(Index));
         }
