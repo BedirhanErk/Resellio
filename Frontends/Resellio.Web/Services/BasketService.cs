@@ -27,11 +27,6 @@ namespace Resellio.Web.Services
 
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<BasketViewModel>>();
 
-            foreach (var item in responseSuccess.Data.BasketItems)
-            {
-                item.ProductPicture = _photoHelper.GetPhotoUrl(item.ProductPicture);
-            }
-
             return responseSuccess.Data;
         }
 
@@ -56,10 +51,16 @@ namespace Resellio.Web.Services
             if (basket != null)
             {
                 if (!basket.BasketItems.Any(x=> x.ProductId == basketItemViewModel.ProductId))
+                {
+                    basketItemViewModel.ProductPicture = _photoHelper.GetPhotoUrl(basketItemViewModel.ProductPicture);
+
                     basket.BasketItems.Add(basketItemViewModel);
+                }
             }
             else
             {
+                basketItemViewModel.ProductPicture = _photoHelper.GetPhotoUrl(basketItemViewModel.ProductPicture);
+
                 basket = new BasketViewModel();
                 basket.BasketItems.Add(basketItemViewModel);
             }
