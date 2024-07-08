@@ -4,8 +4,8 @@ namespace Resellio.Services.Order.Domain.OrderAggregate
 {
     public class OrderItem : Entity
     {
-        public string CourseId { get; private set; }
-        public string CourseName { get; private set; }
+        public string ProductId { get; private set; }
+        public string ProductName { get; private set; }
         public decimal Price { get; private set; }
         public string PictureUrl { get; private set; }
 
@@ -14,17 +14,17 @@ namespace Resellio.Services.Order.Domain.OrderAggregate
             
         }
 
-        public OrderItem(string courseId, string courseName, decimal price, string pictureUrl)
+        public OrderItem(string productId, string productName, decimal price, string pictureUrl)
         {
-            CourseId = courseId;
-            CourseName = courseName;
+            ProductId = productId;
+            ProductName = productName;
             Price = price;
             PictureUrl = pictureUrl;
         }
 
-        public void UpdateOrderItem(string courseName, decimal price, string pictureUrl)
+        public void UpdateOrderItem(string productName, decimal price, string pictureUrl)
         {
-            CourseName = courseName;
+            ProductName = productName;
             Price = price;
             PictureUrl = pictureUrl;
         }

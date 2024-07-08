@@ -24,13 +24,13 @@ namespace Resellio.Services.Order.Domain.OrderAggregate
             _orderItems = new List<OrderItem>();
         }
 
-        public void AddOrderItem(string courseId, string courseName, decimal price, string pictureUrl)
+        public void AddOrderItem(string productId, string productName, decimal price, string pictureUrl)
         {
-            var existCourse = _orderItems.Any(x => x.CourseId == courseId);
+            var existProduct = _orderItems.Any(x => x.ProductId == productId);
 
-            if (!existCourse)
+            if (!existProduct)
             {
-                var newOrderItem = new OrderItem(courseId, courseName, price, pictureUrl);
+                var newOrderItem = new OrderItem(productId, productName, price, pictureUrl);
                 _orderItems.Add(newOrderItem);
             }
         }

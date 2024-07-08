@@ -21,7 +21,7 @@ namespace Resellio.Services.Order.Application.Consumers
 
             context.Message.OrderItems.ForEach(x =>
             {
-                order.AddOrderItem(x.CourseId, x.CourseName, x.Price, x.PictureUrl);
+                order.AddOrderItem(x.ProductId, x.ProductName, x.Price, x.PictureUrl);
             });
 
             await _orderDbContext.Orders.AddAsync(order);

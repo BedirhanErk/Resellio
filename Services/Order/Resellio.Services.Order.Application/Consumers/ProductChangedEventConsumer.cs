@@ -16,7 +16,7 @@ namespace Resellio.Services.Order.Application.Consumers
 
         public async Task Consume(ConsumeContext<ProductChangedEvent> context)
         {
-            var orderItems = await _orderDbContext.OrderItems.Where(x => x.CourseId == context.Message.ProductId).ToListAsync();
+            var orderItems = await _orderDbContext.OrderItems.Where(x => x.ProductId == context.Message.ProductId).ToListAsync();
 
             orderItems.ForEach(x => {
                 x.UpdateOrderItem(context.Message.ProductName, x.Price, x.PictureUrl);

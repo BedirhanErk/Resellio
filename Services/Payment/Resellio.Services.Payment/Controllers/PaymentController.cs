@@ -29,8 +29,8 @@ namespace Resellio.Services.Payment.Controllers
             foreach (var item in payment.Order.OrderItems)
             {
                 var newOrderItem = new OrderItem(); 
-                newOrderItem.CourseId = item.CourseId;
-                newOrderItem.CourseName = item.CourseName;
+                newOrderItem.ProductId = item.ProductId;
+                newOrderItem.ProductName = item.ProductName;
                 newOrderItem.Price = item.Price;
                 newOrderItem.PictureUrl = item.PictureUrl;
                 createOrderMessageCommand.OrderItems.Add(newOrderItem);

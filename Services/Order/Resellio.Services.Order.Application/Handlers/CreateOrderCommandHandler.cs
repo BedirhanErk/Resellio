@@ -23,7 +23,7 @@ namespace Resellio.Services.Order.Application.Handlers
 
             request.OrderItems.ForEach(x =>
             {
-                newOrder.AddOrderItem(x.CourseId, x.CourseName, x.Price, x.PictureUrl);
+                newOrder.AddOrderItem(x.ProductId, x.ProductName, x.Price, x.PictureUrl);
             });
 
             await _dbContext.Orders.AddAsync(newOrder);

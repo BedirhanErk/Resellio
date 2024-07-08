@@ -19,8 +19,8 @@ namespace Resellio.Shared.Messages
 
     public class OrderItem
     {
-        public string CourseId { get; set; }
-        public string CourseName { get; set; }
+        public string ProductId { get; set; }
+        public string ProductName { get; set; }
         public decimal Price { get; set; }
         public string PictureUrl { get; set; }
     }
