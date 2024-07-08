@@ -19,7 +19,7 @@
                                     </a>
                                     <div class="single_product_text">
                                         <h4>@item.Name</h4>
-                                        <h3>@item.Category.Name <span style="float:right">@item.Price ₺</span></h3>
+                                        <h3>@item.Category.Name <span class="category-right">@item.Price ₺</span></h3>
                                         <a asp-controller="Basket" asp-action="AddBasketItem" asp-route-id="@item.Id" class="add_cart">+ Add To Cart</a>
                                     </div>
                                 </div>
@@ -31,3 +31,9 @@
         </div>
     </div>
 </section>
+
+<style>
+    .category-right {
+        float: right;
+    }
+</style>

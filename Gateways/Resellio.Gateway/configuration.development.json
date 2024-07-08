@@ -65,7 +65,7 @@
       "UpstreamScheme": "http",
       "DelegatingHandlers": [ "TokenExchangeDelegateHandler" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationScheme",
+        "AuthenticationProviderKey": "GatewayAuthenticationScheme"
       }
     },
     {
@@ -99,7 +99,7 @@
       "UpstreamScheme": "http",
       "DelegatingHandlers": [ "TokenExchangeDelegateHandler" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationScheme",
+        "AuthenticationProviderKey": "GatewayAuthenticationScheme"
       }
     }
   ],
