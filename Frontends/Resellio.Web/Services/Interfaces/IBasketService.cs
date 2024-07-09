@@ -5,6 +5,7 @@ namespace Resellio.Web.Services.Interfaces
     public interface IBasketService
     {
         Task<BasketViewModel> GetBasket();
+        Task<long> GetBasketItemCount();
         Task<bool> SaveOrUpdate(BasketViewModel basketViewModel);
         Task<bool> Delete();
         Task AddBasketItem(BasketItemViewModel basketItemViewModel);

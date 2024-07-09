@@ -23,6 +23,13 @@ namespace Resellio.Services.Basket.Services
             return Response<BasketDto>.Success(JsonSerializer.Deserialize<BasketDto>(existBasket), 200);
         }
 
+        public async Task<Response<long>> GetBasketItemCount(string userId)
+        {
+            var existBasket = await _redisService.GetDb().StringGetAsync(userId);
+
+            return Response<long>.Success(JsonSerializer.Deserialize<BasketDto>(existBasket).BasketItems.Count(), 200);
+        }
+
         public async Task<Response<bool>> SaveOrUpdate(BasketDto basketDto)
         {
             var status = await _redisService.GetDb().StringSetAsync(basketDto.UserId, JsonSerializer.Serialize(basketDto));

@@ -30,6 +30,18 @@ namespace Resellio.Web.Services
             return responseSuccess.Data;
         }
 
+        public async Task<long> GetBasketItemCount()
+        {
+            var response = await _httpClient.GetAsync("basket/GetBasketItemCount");
+
+            if (!response.IsSuccessStatusCode)
+                return 0;
+
+            var responseSuccess = await response.Content.ReadFromJsonAsync<Response<long>>();
+
+            return responseSuccess.Data;
+        }
+
         public async Task<bool> SaveOrUpdate(BasketViewModel basketViewModel)
         {
             var response = await _httpClient.PostAsJsonAsync("basket", basketViewModel);

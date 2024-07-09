@@ -27,6 +27,14 @@ namespace Resellio.Services.Basket.Controllers
             return CreateActionResultInstance(response);
         }
 
+        [HttpGet("GetBasketItemCount")]
+        public async Task<IActionResult> GetBasketItemCount()
+        {
+            var response = await _basketService.GetBasketItemCount(_sharedIdentityService.UserId);
+
+            return CreateActionResultInstance(response);
+        }
+
         [HttpPost]
         public async Task<IActionResult> SaveOrUpdateBasket(BasketDto basketDto)
         {
