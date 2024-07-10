@@ -3,81 +3,120 @@
     ViewData["Title"] = "Checkout";
 }
 
-<form asp-controller="Order" asp-action="Checkout" method="post">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Address Information</h5>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Province"></label>
-                        <input class="form-control" type="text" asp-for="Province" />
-                        <span class="text-danger" asp-validation-for="Province"></span>
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner breadcrumb-height">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Checkout</h2>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="District"></label>
-                        <input class="form-control" type="text" asp-for="District" />
-                        <span class="text-danger" asp-validation-for="District"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Street"></label>
-                        <input class="form-control" type="text" asp-for="Street" />
-                        <span class="text-danger" asp-validation-for="Street"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="ZipCode"></label>
-                        <input class="form-control" type="text" asp-for="ZipCode" />
-                        <span class="text-danger" asp-validation-for="ZipCode"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Line"></label>
-                        <textarea class="form-control" type="text" asp-for="Line"></textarea>
-                        <span class="text-danger" asp-validation-for="Line"></span>
-                    </div>
-                    <h5 class="card-title">Payment Details</h5>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Name"></label>
-                        <input class="form-control" type="text" asp-for="Name" />
-                        <span class="text-danger" asp-validation-for="Name"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="CardNumber"></label>
-                        <input class="form-control" type="text" asp-for="CardNumber" />
-                        <span class="text-danger" asp-validation-for="CardNumber"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Expiration"></label>
-                        <input class="form-control" type="text" asp-for="Expiration" />
-                        <span class="text-danger" asp-validation-for="Expiration"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="CVV"></label>
-                        <input class="form-control" type="text" asp-for="CVV" />
-                        <span class="text-danger" asp-validation-for="CVV"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Payment Summary</h5>
-                    <table class="table table-striped">
-                        @foreach (var item in ViewBag.basket.BasketItems as List<BasketItemViewModel>)
-                        {
-                            <tr>
-                                <td>@item.ProductName</td>
-                                <td>@item.Price</td>
-                            </tr>
-                        }
-                        <tr>
-                            <td>@(ViewBag.basket.HasDiscount ? "Total Discounted Price" : "Total Price")</td>
-                            <td>@ViewBag.basket.TotalPrice</td>
-                        </tr>
-                    </table>
-                    <button class="btn btn-success" type="submit">Complete Payment</button>
                 </div>
             </div>
         </div>
     </div>
-</form>
+</section>
+
+<section class="checkout_area padding_top pt-3">
+    <div class="container">
+        <div class="billing_details">     
+            <form class="row contact_form" asp-controller="Order" asp-action="Checkout" method="post">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Address Details</h3>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="Province" asp-for="Province" />
+                                <span class="text-danger" asp-validation-for="Province"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="District" asp-for="District" />
+                                <span class="text-danger" asp-validation-for="District"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="Street" asp-for="Street" />
+                                <span class="text-danger" asp-validation-for="Street"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="Zip Code" asp-for="ZipCode" />
+                                <span class="text-danger" asp-validation-for="ZipCode"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <textarea class="form-control" rows="1" placeholder="Address" asp-for="Line"></textarea>
+                                <span class="text-danger" asp-validation-for="Line"></span>
+                            </div>
+                        </div>
+                        <h3 class="mt-2">Payment Details</h3>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" placeholder="Name on Card" asp-for="Name" />
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" placeholder="Card Number" asp-for="CardNumber" />
+                                <span class="text-danger" asp-validation-for="CardNumber"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" placeholder="Expiry Date" asp-for="Expiration" />
+                                <span class="text-danger" asp-validation-for="Expiration"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" asp-for="CVV" placeholder="CVV" />
+                                <span class="text-danger" asp-validation-for="CVV"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="order_box">
+                            <h2>Your Order</h2>
+                            <ul class="list">
+                                <li>
+                                    <a href="#">
+                                        Product
+                                        <span>Price</span>
+                                    </a>
+                                </li>
+                                @foreach (var item in ViewBag.basket.BasketItems as List<BasketItemViewModel>)
+                                {
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.ProductId">
+                                            @item.ProductName
+                                            <span class="last">@item.CurrentPrice ₺</span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                            <ul class="list list_2">
+                                <li>
+                                    <a style="border-bottom: none;" href="#">
+                                        @(ViewBag.basket.HasDiscount ? "Total Discounted Price" : "Total Price")
+                                        <span>@ViewBag.basket.TotalPrice ₺</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <button class="btn_3 b-checkout mt-2" type="submit">Complete Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </form>                 
+        </div>
+    </div>
+</section>
+
+<style>
+    .breadcrumb-height {
+        height: auto !important;
+    }
+    
+    .b-checkout {
+        width: 100%;
+    }
+</style>
