@@ -7791,4 +7791,7 @@ h6 {
     opacity: 0.9;
 }
 
+.breadcrumb-height {
+    height: auto !important;
+}
 /*# sourceMappingURL=style.css.map */
