@@ -1,4 +1,5 @@
-﻿using Resellio.Web.Models;
+﻿using Resellio.Web.Helpers;
+using Resellio.Web.Models;
 using Resellio.Web.Services.Interfaces;
 
 namespace Resellio.Web.Services
@@ -7,11 +8,15 @@ namespace Resellio.Web.Services
     {
         private readonly HttpClient _signUpClient;
         private readonly HttpClient _userClient;
+        private readonly IPhotoStockService _photoStockService;
+        private readonly PhotoHelper _photoHelper;
 
-        public UserService(IHttpClientFactory httpClientFactory)
+        public UserService(IHttpClientFactory httpClientFactory, IPhotoStockService photoStockService, PhotoHelper photoHelper)
         {
             _signUpClient = httpClientFactory.CreateClient("SignupClient");
             _userClient = httpClientFactory.CreateClient("UserClient");
+            _photoStockService = photoStockService;
+            _photoHelper = photoHelper;
         }
 
         public async Task<bool> Signup(SignupInput signupInput)
@@ -21,9 +26,28 @@ namespace Resellio.Web.Services
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<UserViewModel> GetUser()
+        public async Task<UserUpdateInput> GetUser()
         {
-            return await _userClient.GetFromJsonAsync<UserViewModel>("/api/user/getuser");
+            var user = await _userClient.GetFromJsonAsync<UserUpdateInput>("/api/user/getuser");
+
+            user.PictureUrl = _photoHelper.GetPhotoUrl(user.Picture);
+
+            return user;
+        }
+
+        public async Task<bool> UpdateUser(UserUpdateInput userUpdateInput)
+        {
+            var resultPhoto = await _photoStockService.UploadPhoto(userUpdateInput.PhotoFormFile);
+
+            if (resultPhoto != null)
+            {
+                await _photoStockService.DeletePhoto(userUpdateInput.Picture);
+                userUpdateInput.Picture = resultPhoto.Url;
+            }
+
+            var response = await _userClient.PostAsJsonAsync("/api/user/updateuser", userUpdateInput);
+
+            return response.IsSuccessStatusCode;
         }
     }
 }

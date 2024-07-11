@@ -5,6 +5,7 @@ namespace Resellio.Web.Services.Interfaces
     public interface IUserService
     {
         Task<bool> Signup(SignupInput signupInput);
-        Task<UserViewModel> GetUser();
+        Task<UserUpdateInput> GetUser();
+        Task<bool> UpdateUser(UserUpdateInput userUpdateInput);
     }
 }
