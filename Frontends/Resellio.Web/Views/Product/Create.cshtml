@@ -1,50 +1,103 @@
 ﻿@model ProductCreateInput
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add Product";
 }
 
-<div class="row">
-    <div class="col-md-8 offset-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Create Product</h5>
-                <form asp-controller="Product" asp-action="Create" method="post" enctype="multipart/form-data">
-                    <div asp-validation-summary="ModelOnly"></div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="CategoryId"></label>
-                        <select class="form-control" asp-items="@ViewBag.categoryList" asp-for="CategoryId">
-                            <option value="">Select a category</option>
-                        </select>
-                        <span class="text-danger" asp-validation-for="CategoryId"></span>
+<section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="breadcrumb_iner breadcrumb-height">
+                    <div class="breadcrumb_iner_item">
+                        <h2>Add Product</h2>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Name"></label>
-                        <input type="text" class="form-control" asp-for="Name" />
-                        <span class="text-danger" asp-validation-for="Name"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Price"></label>
-                        <input type="text" class="form-control" asp-for="Price" />
-                        <span class="text-danger" asp-validation-for="Price"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Description"></label>
-                        <textarea type="text" class="form-control" asp-for="Description"></textarea>
-                        <span class="text-danger" asp-validation-for="Description"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="Feature.Duration"></label>
-                        <input type="text" class="form-control" asp-for="Feature.Duration" />
-                        <span class="text-danger" asp-validation-for="Feature.Duration"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" asp-for="PhotoFormFile"></label>
-                        <input type="file" class="form-control" asp-for="PhotoFormFile" />
-                        <span class="text-danger" asp-validation-for="PhotoFormFile"></span>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Create</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
+</section>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <form asp-controller="Product" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <select asp-items="@ViewBag.categoryList" asp-for="CategoryId">
+                        <option value="">Category</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="CategoryId"></span>
+                </div>             
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Name" asp-for="Name" />
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="col-md-6 input-group-icon">
+                    <input type="text" class="form-control price-text" placeholder="Price" asp-for="Price" />
+                    <div class="icon">₺</div>
+                    <span class="text-danger" asp-validation-for="Price"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <textarea class="form-control" rows="5" placeholder="Description" asp-for="Description"></textarea>
+                    <span class="text-danger" asp-validation-for="Description"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="files" class="btn file-label">Picture</label>
+                    <input id="files" style="display:none;" type="file" asp-for="PhotoFormFile">
+                    <span class="text-danger" asp-validation-for="PhotoFormFile"></span>
+                </div>
+            </div>
+            <button class="btn_3 float-end" type="submit">Add</button>
+        </form>
+    </div>
 </div>
+
+<script>
+    document.querySelector("#files").onchange = function () {
+        const fileName = this.files[0]?.name;
+        const label = document.querySelector("label[for=files]");
+        label.innerText = fileName ?? "Picture";
+    };
+</script>
+
+<style>
+    .nice-select {
+        width: 100%;
+        font-size: 1rem;
+        padding: .375rem .75rem;
+        line-height: 1.9;
+    }
+
+    .list {
+        width: 100%;
+    }
+
+    .icon {
+        top: -1px!important;
+        font-size: 1rem;
+    }
+
+    .price-text {
+        padding-left: 25px;
+    }
+
+    .file-label {
+        border: 1px solid #e5e5e5;
+        border-radius: 0.375rem;
+        font-family: 'Helvetica', sans-serif;
+        transition: .5s;
+        width: 100%;
+        font-size: 1rem;
+        padding: .375rem .75rem;
+    }
+
+    .file-label:hover {
+        background-color: #eee;
+    }
+</style>                    

@@ -22,8 +22,6 @@
 
         public DateTime CreatedDate { get; set; }
 
-        public FeatureViewModel Feature { get; set; }
-
         public CategoryViewModel Category { get; set; }
     }
 }

@@ -67,7 +67,6 @@ namespace Resellio.Web.Controllers
             productUpdateInput.Price = product.Price;
             productUpdateInput.Picture = product.Picture;
             productUpdateInput.Description = product.Description;
-            productUpdateInput.Feature = product.Feature;
 
             var categories = await _catalogService.GetAllCategories();
 

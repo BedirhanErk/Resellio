@@ -26,8 +26,6 @@ namespace Resellio.Services.Catalog.Models
         [BsonRepresentation(BsonType.DateTime)]
         public DateTime CreatedDate { get; set; }
 
-        public Feature Feature { get; set; }
-
         [BsonIgnore]
         public Category Category { get; set; }
     }

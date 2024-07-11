@@ -9,7 +9,6 @@ namespace Resellio.Web.Models.Catalog
 
         public string? UserId { get; set; }
 
-        [Display(Name = "Category")]
         public string CategoryId { get; set; }
 
         public string Name { get; set; }
@@ -20,9 +19,6 @@ namespace Resellio.Web.Models.Catalog
 
         public string Description { get; set; }
 
-        public FeatureViewModel Feature { get; set; }
-
-        [Display(Name = "Picture")]
         public IFormFile PhotoFormFile { get; set; }
     }
 }

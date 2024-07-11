@@ -18,8 +18,6 @@
 
         public DateTime CreatedDate { get; set; }
 
-        public FeatureDto Feature { get; set; }
-
         public CategoryDto Category { get; set; }
     }
 }
