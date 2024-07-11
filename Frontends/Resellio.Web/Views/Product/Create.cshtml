@@ -6,12 +6,15 @@
 <section class="breadcrumb breadcrumb_bg">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="breadcrumb_iner breadcrumb-height">
                     <div class="breadcrumb_iner_item">
                         <h2>Add Product</h2>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-2">
+                <a class="btn_3 btn-undo float-end" title="Go Back" asp-controller="Product" asp-action="Index"><i class="fa fa-arrow-left"></i></a>
             </div>
         </div>
     </div>
@@ -42,7 +45,7 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-12">
-                    <textarea class="form-control" rows="5" placeholder="Description" asp-for="Description"></textarea>
+                    <textarea class="form-control" rows="10" placeholder="Description" asp-for="Description"></textarea>
                     <span class="text-danger" asp-validation-for="Description"></span>
                 </div>
             </div>
@@ -67,6 +70,10 @@
 </script>
 
 <style>
+    .btn-undo {
+        padding: 9px 15px;
+    }
+
     .nice-select {
         width: 100%;
         font-size: 1rem;
