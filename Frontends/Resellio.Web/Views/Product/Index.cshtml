@@ -48,7 +48,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td style="padding-left:25px"><img class="img-thumbnail table-img" alt="@item.Name" src="@item.PictureUrl" />@item.Name</td>
+                    <td style="padding-left:25px"><a class="text-dark" asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id"><img class="img-thumbnail table-img" alt="@item.Name" src="@item.PictureUrl" />@item.Name</a></td>
                     <td>@item.Category.Name</td>
                     <td>@item.Price ₺</td>
                     <td class="text-center">

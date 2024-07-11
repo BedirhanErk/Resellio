@@ -21,9 +21,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="order_details_iner">
-                    @if (Model.Any())
-                    {
+                @if (Model.Any())
+                {
+                    <div class="order_details_iner">
                         <table class="table table-borderless table-bg">
                             <thead>
                                 <tr>
@@ -59,8 +59,15 @@
                                 }
                             </tbody>
                         </table>
-                    }
-                </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="cart-empty">
+                        <p class="mb-3">You didn't buy any product.</p>
+                        <a class="btn_1" asp-controller="Home" asp-action="Index">Keep Shopping</a>
+                    </div>
+                }
             </div>
         </div>
     </div>
@@ -69,5 +76,15 @@
 <style>
     .table-bg th, .table-bg td {
         background-color: #ecfdff;
+    }
+
+    .cart-empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 0 2px #d1d7dc;
+        padding: 80px;
+        margin-top: 30px;
     }
 </style>
