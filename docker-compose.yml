@@ -12,6 +12,11 @@ services:
     image: mcr.microsoft.com/mssql/server
   rabbitmq:
     image: rabbitmq:3.13.3-management
+  catalog.api:
+    image: catalog_api_image
+    build: 
+      context: .
+      dockerfile: Services/Catalog/Resellio.Services.Catalog/Dockerfile
 volumes:
   catalogdb_volume:
   discountdb_volume:
