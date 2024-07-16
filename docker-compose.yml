@@ -7,11 +7,11 @@ services:
   discountdb:
     image: postgres
   identitydb:
-    image: mcr.microsoft.com/mssql/server
+    image: mcr.microsoft.com/mssql/server:2019-latest
   orderdb: 
-    image: mcr.microsoft.com/mssql/server
+    image: mcr.microsoft.com/mssql/server:2019-latest
   rabbitmq:
-    image: rabbitmq:3.13.3-management
+    image: rabbitmq:3.13.4-management
   catalog.api:
     image: catalog_api_image
     build: 
