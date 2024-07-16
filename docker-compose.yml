@@ -17,6 +17,11 @@ services:
     build: 
       context: .
       dockerfile: Services/Catalog/Resellio.Services.Catalog/Dockerfile
+  identityserver.api:
+    image: identityserver_api_image
+    build: 
+      context: .
+      dockerfile: IdentityServer/Resellio.IdentityServer/Dockerfile
 volumes:
   catalogdb_volume:
   discountdb_volume:
