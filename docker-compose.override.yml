@@ -57,7 +57,7 @@ services:
       - IdentityServerURL=http://identityserver.api
       - DatabaseSettings:ConnectionString=mongodb://catalogdb:27017
     ports:
-      - "5011:80"
+      - "5011:8080"
     depends_on:
       - catalogdb
   identityserver.api:
@@ -78,7 +78,7 @@ services:
       - RedisSettings:Port=6379
       - RedisSettings:Host=basketdb
     ports:
-      - "5013:80"
+      - "5013:8080"
     depends_on:
       - basketdb
   discount.api:
@@ -88,6 +88,6 @@ services:
       - IdentityServerURL=http://identityserver.api
       - "ConnectionStrings:PostgreSql=User ID=admin; Password=Password12*; Server=discountdb; Port=5432; Database=discountdb; Pooling=true"
     ports:
-      - "5014:80"
+      - "5014:8080"
     depends_on:
       - discountdb
