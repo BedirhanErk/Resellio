@@ -64,7 +64,7 @@ services:
     container_name: identityserver.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings:DefaultConnection=Server=identitydb,1433;Database=IdentityDb;User=sa;Password=Password12*
+      - "ConnectionStrings:DefaultConnection=Server=identitydb,1433;Database=IdentityDb;User=sa;Password=Password12*"
     ports:
       - "5001:80"
     depends_on:
@@ -81,3 +81,13 @@ services:
       - "5013:80"
     depends_on:
       - basketdb
+  discount.api:
+    container_name: discount.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerURL=http://identityserver.api
+      - "ConnectionStrings:PostgreSql=User ID=admin; Password=Password12*; Server=discountdb; Port=5432; Database=discountdb; Pooling=true"
+    ports:
+      - "5014:80"
+    depends_on:
+      - discountdb
