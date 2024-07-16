@@ -37,6 +37,11 @@ services:
     build: 
       context: .
       dockerfile: Services/Discount/Resellio.Services.Discount/Dockerfile
+  payment.api:
+    image: payment_api_image
+    build: 
+      context: .
+      dockerfile: Services/Payment/Resellio.Services.Payment/Dockerfile
 volumes:
   catalogdb_volume:
   discountdb_volume:

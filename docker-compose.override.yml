@@ -102,3 +102,11 @@ services:
       - "5014:8080"
     depends_on:
       - discountdb
+  payment.api:
+    container_name: payment.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMQUrl=rabbitmq
+      - IdentityServerURL=http://identityserver.api
+    ports:
+      - "5016:8080"
