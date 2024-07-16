@@ -81,6 +81,17 @@ services:
       - "5013:8080"
     depends_on:
       - basketdb
+  photostock.api:
+    container_name: photostock.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerURL=http://identityserver.api
+    ports:
+      - "5012:8080"
+    volumes:
+      - type: bind
+        source: C:\Users\erkil\Desktop\Bedirhan Erkılıç\Project & Themes & Resources\Resellio\photos
+        target: /app/wwwroot/photos
   discount.api:
     container_name: discount.api
     environment:

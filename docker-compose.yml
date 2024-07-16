@@ -27,6 +27,11 @@ services:
     build: 
       context: .
       dockerfile: Services/Basket/Resellio.Services.Basket/Dockerfile
+  photostock.api:
+    image: photostock_api_image
+    build: 
+      context: .
+      dockerfile: Services/PhotoStock/Resellio.Services.PhotoStock/Dockerfile
   discount.api:
     image: discount_api_image
     build: 
