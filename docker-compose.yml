@@ -52,6 +52,11 @@ services:
     build: 
       context: .
       dockerfile: Gateways/Resellio.Gateway/Dockerfile    
+  aspnetcoremvc.web:
+    image: aspnetcoremvc_web_image
+    build: 
+      context: .
+      dockerfile: Frontends/Resellio.Web/Dockerfile  
 volumes:
   catalogdb_volume:
   discountdb_volume:
