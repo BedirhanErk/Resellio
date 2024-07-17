@@ -47,6 +47,11 @@ services:
     build: 
       context: .
       dockerfile: Services/Order/Resellio.Services.Order/Dockerfile      
+  gateway.api:
+    image: gateway_api_image
+    build: 
+      context: .
+      dockerfile: Gateways/Resellio.Gateway/Dockerfile    
 volumes:
   catalogdb_volume:
   discountdb_volume:

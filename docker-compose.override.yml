@@ -62,6 +62,7 @@ services:
       - catalogdb
   identityserver.api:
     container_name: identityserver.api
+    restart: on-failure
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:DefaultConnection=Server=identitydb,1433;Database=IdentityDb;User=sa;Password=Password12*"
@@ -112,6 +113,7 @@ services:
       - "5016:8080"
   order.api:
     container_name: order.api
+    restart: on-failure    
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - RabbitMQUrl=rabbitmq
@@ -121,3 +123,12 @@ services:
       - "5015:8080"
     depends_on:
       - orderdb
+  gateway.api:
+    container_name: gateway.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - IdentityServerURL=http://identityserver.api
+    ports:
+      - "5000:8080"
+    volumes:
+      - ./Gateways/Resellio.Gateway/configuration.production.json:/app/configuration.Production.json    
