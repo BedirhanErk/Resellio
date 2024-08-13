@@ -76,7 +76,7 @@ Microservice responsible for user data storage, token and refreshtoken generatio
 
 The databases used in the project have been set up as containers. At the end of the project, the microservices were dockerized and docker compose files were created
 
-![Resellio Gif](https://i.ibb.co/SsWHwNQ/Resellio-Gif.gif)
+![Resellio Gif](https://s12.gifyu.com/images/SDglD.gif)
 
 ---
 
