@@ -80,8 +80,6 @@ The databases used in the project have been set up as containers. At the end of 
 
 ---
 
-I continue to develop the project if you have any suggestions or if you encounter any problems
-
-Mail: erkilicbedirhan@gmail.com
+I continue to develop the project. If you have any suggestions or encounter any problems, you can send an e-mail: erkilicbedirhan@gmail.com
 
 ---
